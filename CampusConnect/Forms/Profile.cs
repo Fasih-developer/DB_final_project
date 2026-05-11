@@ -31,5 +31,20 @@ namespace CampusConnect.Forms
         {
 
         }
+
+        private void Profile_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox14_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox13_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

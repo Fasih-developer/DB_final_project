@@ -104,11 +104,29 @@
       <DependentUpon>CampusConnectform.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\DBConnection.cs" />
+    <Compile Include="Forms\Certificates.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Certificates.Designer.cs">
+      <DependentUpon>Certificates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Education.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Education.Designer.cs">
+      <DependentUpon>Education.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Internship.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Internship.Designer.cs">
+      <DependentUpon>Internship.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Login.cs">
       <SubType>Form</SubType>
@@ -128,6 +146,18 @@
     <Compile Include="Forms\SignUp.Designer.cs">
       <DependentUpon>SignUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Skills.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Skills.Designer.cs">
+      <DependentUpon>Skills.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\University.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\University.Designer.cs">
+      <DependentUpon>University.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Forms\Sample.cs">
@@ -139,8 +169,17 @@
     <EmbeddedResource Include="Forms\CampusConnectform.resx">
       <DependentUpon>CampusConnectform.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Certificates.resx">
+      <DependentUpon>Certificates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Education.resx">
+      <DependentUpon>Education.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Internship.resx">
+      <DependentUpon>Internship.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -150,6 +189,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SignUp.resx">
       <DependentUpon>SignUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Skills.resx">
+      <DependentUpon>Skills.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\University.resx">
+      <DependentUpon>University.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
