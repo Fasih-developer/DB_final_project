@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 
 namespace CampusConnect.Forms
 {
@@ -18,21 +10,23 @@ namespace CampusConnect.Forms
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnAdmin_Click(object sender, EventArgs e)
         {
-          MySqlConnection con = DBConnection.GetConnection();
+            admin_signin form = new admin_signin();
+            form.Show();
+            this.Hide();
+        }
 
-            try
-            {
-                con.Open();
-                MessageBox.Show("Database Connected Successfully");
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+        private void btnUser_Click(object sender, EventArgs e)
+        {
+            CampusConnectform form = new CampusConnectform();
+            form.Show();
+            this.Hide();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
-    }
-
+}

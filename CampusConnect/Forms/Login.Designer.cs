@@ -1,179 +1,166 @@
-﻿namespace CampusConnect.Forms
+namespace CampusConnect.Forms
 {
     partial class Login
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
-
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
+            if (disposing && (components != null)) components.Dispose();
             base.Dispose(disposing);
         }
 
         #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.panelSidebar = new System.Windows.Forms.Panel();
+            this.lblSideTitle = new System.Windows.Forms.Label();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.panelCard = new System.Windows.Forms.Panel();
+            this.lblCardTitle = new System.Windows.Forms.Label();
+            this.lblCardSubtitle = new System.Windows.Forms.Label();
+            this.lblUsername = new System.Windows.Forms.Label();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.lblPassword = new System.Windows.Forms.Label();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.btnSignIn = new System.Windows.Forms.Button();
+            this.panelSidebar.SuspendLayout();
+            this.panelCard.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(72)))), ((int)(((byte)(71)))));
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(391, 646);
-            this.panel1.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Red;
-            this.button1.Font = new System.Drawing.Font("Montserrat Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(12, 574);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(127, 50);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Exit";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Montserrat", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(131, 219);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(115, 51);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Login";
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(251, 47);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(303, 36);
-            this.textBox1.TabIndex = 1;
-            // 
-            // textBox2
-            // 
-            this.textBox2.BackColor = System.Drawing.Color.White;
-            this.textBox2.Location = new System.Drawing.Point(251, 174);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(303, 36);
-            this.textBox2.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Montserrat Medium", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(31, 47);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(141, 36);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "UserName";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Montserrat Medium", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(31, 174);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(131, 36);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Password";
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(193)))), ((int)(((byte)(164)))));
-            this.button3.Font = new System.Drawing.Font("Montserrat Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(364, 258);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(189, 53);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "Sign-In";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(72)))), ((int)(((byte)(71)))));
-            this.panel2.Controls.Add(this.button3);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.textBox2);
-            this.panel2.Controls.Add(this.textBox1);
-            this.panel2.Location = new System.Drawing.Point(468, 85);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(581, 426);
-            this.panel2.TabIndex = 7;
-            // 
+            // panelSidebar
+            this.panelSidebar.BackColor = System.Drawing.Color.FromArgb(68, 72, 71);
+            this.panelSidebar.Controls.Add(this.lblSideTitle);
+            this.panelSidebar.Controls.Add(this.btnExit);
+            this.panelSidebar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelSidebar.Name = "panelSidebar";
+            this.panelSidebar.Size = new System.Drawing.Size(280, 656);
+            this.panelSidebar.TabIndex = 0;
+            // lblSideTitle
+            this.lblSideTitle.Font = new System.Drawing.Font("Montserrat", 20F, System.Drawing.FontStyle.Bold);
+            this.lblSideTitle.ForeColor = System.Drawing.Color.White;
+            this.lblSideTitle.Location = new System.Drawing.Point(20, 240);
+            this.lblSideTitle.Name = "lblSideTitle";
+            this.lblSideTitle.Size = new System.Drawing.Size(240, 100);
+            this.lblSideTitle.TabIndex = 0;
+            this.lblSideTitle.Text = "Sign\r\nIn";
+            // btnExit
+            this.btnExit.BackColor = System.Drawing.Color.Red;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Font = new System.Drawing.Font("Montserrat Medium", 11F, System.Drawing.FontStyle.Bold);
+            this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.Location = new System.Drawing.Point(20, 600);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(110, 38);
+            this.btnExit.TabIndex = 1;
+            this.btnExit.Text = "Go Back";
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // panelCard
+            this.panelCard.BackColor = System.Drawing.Color.FromArgb(68, 72, 71);
+            this.panelCard.Controls.Add(this.lblCardTitle);
+            this.panelCard.Controls.Add(this.lblCardSubtitle);
+            this.panelCard.Controls.Add(this.lblUsername);
+            this.panelCard.Controls.Add(this.txtUsername);
+            this.panelCard.Controls.Add(this.lblPassword);
+            this.panelCard.Controls.Add(this.txtPassword);
+            this.panelCard.Controls.Add(this.btnSignIn);
+            this.panelCard.Location = new System.Drawing.Point(380, 140);
+            this.panelCard.Name = "panelCard";
+            this.panelCard.Size = new System.Drawing.Size(440, 380);
+            this.panelCard.TabIndex = 1;
+            // lblCardTitle
+            this.lblCardTitle.AutoSize = true;
+            this.lblCardTitle.Font = new System.Drawing.Font("Montserrat", 20F, System.Drawing.FontStyle.Bold);
+            this.lblCardTitle.ForeColor = System.Drawing.Color.White;
+            this.lblCardTitle.Location = new System.Drawing.Point(30, 30);
+            this.lblCardTitle.Name = "lblCardTitle";
+            this.lblCardTitle.TabIndex = 0;
+            this.lblCardTitle.Text = "Sign In";
+            // lblCardSubtitle
+            this.lblCardSubtitle.AutoSize = true;
+            this.lblCardSubtitle.Font = new System.Drawing.Font("Montserrat", 9F);
+            this.lblCardSubtitle.ForeColor = System.Drawing.Color.FromArgb(180, 180, 180);
+            this.lblCardSubtitle.Location = new System.Drawing.Point(30, 68);
+            this.lblCardSubtitle.Name = "lblCardSubtitle";
+            this.lblCardSubtitle.TabIndex = 1;
+            this.lblCardSubtitle.Text = "Welcome back";
+            // lblUsername
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Font = new System.Drawing.Font("Montserrat Medium", 11F, System.Drawing.FontStyle.Bold);
+            this.lblUsername.ForeColor = System.Drawing.Color.White;
+            this.lblUsername.Location = new System.Drawing.Point(30, 110);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.TabIndex = 2;
+            this.lblUsername.Text = "Username";
+            // txtUsername
+            this.txtUsername.BackColor = System.Drawing.Color.FromArgb(44, 49, 49);
+            this.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtUsername.Font = new System.Drawing.Font("Montserrat", 10F);
+            this.txtUsername.ForeColor = System.Drawing.Color.White;
+            this.txtUsername.Location = new System.Drawing.Point(30, 140);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(370, 34);
+            this.txtUsername.TabIndex = 3;
+            // lblPassword
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Font = new System.Drawing.Font("Montserrat Medium", 11F, System.Drawing.FontStyle.Bold);
+            this.lblPassword.ForeColor = System.Drawing.Color.White;
+            this.lblPassword.Location = new System.Drawing.Point(30, 200);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.TabIndex = 4;
+            this.lblPassword.Text = "Password";
+            // txtPassword
+            this.txtPassword.BackColor = System.Drawing.Color.FromArgb(44, 49, 49);
+            this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPassword.Font = new System.Drawing.Font("Montserrat", 10F);
+            this.txtPassword.ForeColor = System.Drawing.Color.White;
+            this.txtPassword.Location = new System.Drawing.Point(30, 230);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
+            this.txtPassword.Size = new System.Drawing.Size(370, 34);
+            this.txtPassword.TabIndex = 5;
+            // btnSignIn
+            this.btnSignIn.BackColor = System.Drawing.Color.FromArgb(52, 193, 164);
+            this.btnSignIn.FlatAppearance.BorderSize = 0;
+            this.btnSignIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSignIn.Font = new System.Drawing.Font("Montserrat Medium", 12F, System.Drawing.FontStyle.Bold);
+            this.btnSignIn.ForeColor = System.Drawing.Color.White;
+            this.btnSignIn.Location = new System.Drawing.Point(30, 300);
+            this.btnSignIn.Name = "btnSignIn";
+            this.btnSignIn.Size = new System.Drawing.Size(160, 46);
+            this.btnSignIn.TabIndex = 6;
+            this.btnSignIn.Text = "Sign In";
+            this.btnSignIn.UseVisualStyleBackColor = false;
+            this.btnSignIn.Click += new System.EventHandler(this.btnSignIn_Click);
             // Login
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
-            this.ClientSize = new System.Drawing.Size(1131, 650);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BackColor = System.Drawing.Color.FromArgb(44, 49, 49);
+            this.ClientSize = new System.Drawing.Size(1180, 656);
+            this.Controls.Add(this.panelSidebar);
+            this.Controls.Add(this.panelCard);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Login";
-            this.Text = "Login";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Sign In";
+            this.panelSidebar.ResumeLayout(false);
+            this.panelCard.ResumeLayout(false);
+            this.panelCard.PerformLayout();
             this.ResumeLayout(false);
-
         }
-
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panelSidebar;
+        private System.Windows.Forms.Label lblSideTitle;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Panel panelCard;
+        private System.Windows.Forms.Label lblCardTitle;
+        private System.Windows.Forms.Label lblCardSubtitle;
+        private System.Windows.Forms.Label lblUsername;
+        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.Label lblPassword;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.Button btnSignIn;
     }
 }

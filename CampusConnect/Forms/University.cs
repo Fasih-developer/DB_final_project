@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
 using System.Windows.Forms;
 
 namespace CampusConnect.Forms
@@ -17,9 +10,48 @@ namespace CampusConnect.Forms
             InitializeComponent();
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
+        private void btnNavProfile_Click(object sender, System.EventArgs e)
         {
+            Profile form = new Profile();
+            form.Show(); this.Hide();
+        }
 
+        private void btnNavSearch_Click(object sender, System.EventArgs e)
+        {
+            Search_Person form = new Search_Person();
+            form.Show(); this.Hide();
+        }
+
+        private void btnNavConnections_Click(object sender, System.EventArgs e)
+        {
+            Connections form = new Connections();
+            form.Show(); this.Hide();
+        }
+
+        private void btnNavUniversities_Click(object sender, System.EventArgs e) { }
+
+        private void btnNavPosts_Click(object sender, System.EventArgs e)
+        {
+            Posts form = new Posts();
+            form.Show(); this.Hide();
+        }
+
+        private void btnNavMessages_Click(object sender, System.EventArgs e)
+        {
+            Messages form = new Messages();
+            form.Show(); this.Hide();
+        }
+
+        private void btnNavEvents_Click(object sender, System.EventArgs e)
+        {
+            Events form = new Events();
+            form.Show(); this.Hide();
+        }
+
+        private void btnLogout_Click(object sender, System.EventArgs e)
+        {
+            Form1 form = new Form1();
+            form.Show(); this.Hide();
         }
     }
 }
