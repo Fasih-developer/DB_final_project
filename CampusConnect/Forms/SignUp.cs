@@ -1,4 +1,5 @@
 using System;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
@@ -18,9 +19,31 @@ namespace CampusConnect.Forms
             string username = txtUsername.Text.Trim();
             string password = txtPassword.Text.Trim();
 
+            // Empty fields check
             if (fullName == "" || email == "" || username == "" || password == "")
             {
                 MessageBox.Show("Please fill in all fields.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Full name: only letters and spaces allowed
+            if (!Regex.IsMatch(fullName, @"^[a-zA-Z ]+$"))
+            {
+                MessageBox.Show("Full Name can only contain letters and spaces.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Email: @ must come before .com
+            if (!Regex.IsMatch(email, @"^[^@]+@[^@]+\.com$"))
+            {
+                MessageBox.Show("Please enter a valid email address.\nExample: example@domain.com", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Password length greater than 6
+            if (password.Length <= 6)
+            {
+                MessageBox.Show("Password must be greater than 6 characters.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
