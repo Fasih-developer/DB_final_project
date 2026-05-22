@@ -15,38 +15,50 @@ namespace CampusConnect.Forms
             this.btnExit = new System.Windows.Forms.Button();
             this.panelCard = new System.Windows.Forms.Panel();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.lblCompany = new System.Windows.Forms.Label();
             this.txtCompany = new System.Windows.Forms.TextBox();
-            this.lblJobRole = new System.Windows.Forms.Label();
             this.txtJobRole = new System.Windows.Forms.TextBox();
-            this.lblDescription = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
-            this.lblStartYear = new System.Windows.Forms.Label();
             this.txtStartYear = new System.Windows.Forms.TextBox();
-            this.lblEndDate = new System.Windows.Forms.Label();
             this.txtEndDate = new System.Windows.Forms.TextBox();
+            this.lblCompany = new System.Windows.Forms.Label();
+            this.lblJobRole = new System.Windows.Forms.Label();
+            this.lblDescription = new System.Windows.Forms.Label();
+            this.lblStartYear = new System.Windows.Forms.Label();
+            this.lblEndDate = new System.Windows.Forms.Label();
             this.panelCard.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // lblPageTitle
+            // 
             this.lblPageTitle.AutoSize = true;
             this.lblPageTitle.Font = new System.Drawing.Font("Montserrat", 20F, System.Drawing.FontStyle.Bold);
             this.lblPageTitle.ForeColor = System.Drawing.Color.White;
-            this.lblPageTitle.Location = new System.Drawing.Point(40, 36);
+            this.lblPageTitle.Location = new System.Drawing.Point(53, 44);
+            this.lblPageTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPageTitle.Name = "lblPageTitle";
+            this.lblPageTitle.Size = new System.Drawing.Size(287, 53);
             this.lblPageTitle.TabIndex = 0;
             this.lblPageTitle.Text = "Add Internship";
+            // 
+            // btnExit
+            // 
             this.btnExit.BackColor = System.Drawing.Color.Red;
             this.btnExit.FlatAppearance.BorderSize = 0;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Montserrat Medium", 10F, System.Drawing.FontStyle.Bold);
             this.btnExit.ForeColor = System.Drawing.Color.White;
-            this.btnExit.Location = new System.Drawing.Point(40, 596);
+            this.btnExit.Location = new System.Drawing.Point(53, 734);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(110, 38);
+            this.btnExit.Size = new System.Drawing.Size(147, 47);
             this.btnExit.TabIndex = 1;
             this.btnExit.Text = "Go Back";
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            this.panelCard.BackColor = System.Drawing.Color.FromArgb(68, 72, 71);
+            // 
+            // panelCard
+            // 
+            this.panelCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(72)))), ((int)(((byte)(71)))));
             this.panelCard.Controls.Add(this.btnAdd);
             this.panelCard.Controls.Add(this.txtCompany);
             this.panelCard.Controls.Add(this.txtJobRole);
@@ -58,114 +70,170 @@ namespace CampusConnect.Forms
             this.panelCard.Controls.Add(this.lblDescription);
             this.panelCard.Controls.Add(this.lblStartYear);
             this.panelCard.Controls.Add(this.lblEndDate);
-            this.panelCard.Location = new System.Drawing.Point(300, 60);
+            this.panelCard.Location = new System.Drawing.Point(400, 74);
+            this.panelCard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelCard.Name = "panelCard";
-            this.panelCard.Size = new System.Drawing.Size(580, 590);
+            this.panelCard.Size = new System.Drawing.Size(773, 726);
             this.panelCard.TabIndex = 2;
-            this.lblCompany.AutoSize = true;
-            this.lblCompany.Font = new System.Drawing.Font("Montserrat Medium", 10F, System.Drawing.FontStyle.Bold);
-            this.lblCompany.ForeColor = System.Drawing.Color.White;
-            this.lblCompany.Location = new System.Drawing.Point(30, 90);
-            this.lblCompany.Name = "lblCompany";
-            this.lblCompany.TabIndex = 0;
-            this.lblCompany.Text = "Company Name";
-            this.txtCompany.BackColor = System.Drawing.Color.FromArgb(44, 49, 49);
-            this.txtCompany.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCompany.Font = new System.Drawing.Font("Montserrat", 10F);
-            this.txtCompany.ForeColor = System.Drawing.Color.White;
-            this.txtCompany.Location = new System.Drawing.Point(30, 116);
-            this.txtCompany.Name = "txtCompany";
-            this.txtCompany.Size = new System.Drawing.Size(500, 32);
-            this.txtCompany.TabIndex = 1;
-            this.lblJobRole.AutoSize = true;
-            this.lblJobRole.Font = new System.Drawing.Font("Montserrat Medium", 10F, System.Drawing.FontStyle.Bold);
-            this.lblJobRole.ForeColor = System.Drawing.Color.White;
-            this.lblJobRole.Location = new System.Drawing.Point(30, 170);
-            this.lblJobRole.Name = "lblJobRole";
-            this.lblJobRole.TabIndex = 2;
-            this.lblJobRole.Text = "Job Role";
-            this.txtJobRole.BackColor = System.Drawing.Color.FromArgb(44, 49, 49);
-            this.txtJobRole.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtJobRole.Font = new System.Drawing.Font("Montserrat", 10F);
-            this.txtJobRole.ForeColor = System.Drawing.Color.White;
-            this.txtJobRole.Location = new System.Drawing.Point(30, 196);
-            this.txtJobRole.Name = "txtJobRole";
-            this.txtJobRole.Size = new System.Drawing.Size(500, 32);
-            this.txtJobRole.TabIndex = 3;
-            this.lblDescription.AutoSize = true;
-            this.lblDescription.Font = new System.Drawing.Font("Montserrat Medium", 10F, System.Drawing.FontStyle.Bold);
-            this.lblDescription.ForeColor = System.Drawing.Color.White;
-            this.lblDescription.Location = new System.Drawing.Point(30, 250);
-            this.lblDescription.Name = "lblDescription";
-            this.lblDescription.TabIndex = 4;
-            this.lblDescription.Text = "Description";
-            this.txtDescription.BackColor = System.Drawing.Color.FromArgb(44, 49, 49);
-            this.txtDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDescription.Font = new System.Drawing.Font("Montserrat", 10F);
-            this.txtDescription.ForeColor = System.Drawing.Color.White;
-            this.txtDescription.Location = new System.Drawing.Point(30, 276);
-            this.txtDescription.Multiline = true;
-            this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(500, 70);
-            this.txtDescription.TabIndex = 5;
-            this.lblStartYear.AutoSize = true;
-            this.lblStartYear.Font = new System.Drawing.Font("Montserrat Medium", 10F, System.Drawing.FontStyle.Bold);
-            this.lblStartYear.ForeColor = System.Drawing.Color.White;
-            this.lblStartYear.Location = new System.Drawing.Point(30, 330);
-            this.lblStartYear.Name = "lblStartYear";
-            this.lblStartYear.TabIndex = 6;
-            this.lblStartYear.Text = "Start Year";
-            this.txtStartYear.BackColor = System.Drawing.Color.FromArgb(44, 49, 49);
-            this.txtStartYear.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtStartYear.Font = new System.Drawing.Font("Montserrat", 10F);
-            this.txtStartYear.ForeColor = System.Drawing.Color.White;
-            this.txtStartYear.Location = new System.Drawing.Point(30, 356);
-            this.txtStartYear.Name = "txtStartYear";
-            this.txtStartYear.Size = new System.Drawing.Size(500, 32);
-            this.txtStartYear.TabIndex = 7;
-            this.lblEndDate.AutoSize = true;
-            this.lblEndDate.Font = new System.Drawing.Font("Montserrat Medium", 10F, System.Drawing.FontStyle.Bold);
-            this.lblEndDate.ForeColor = System.Drawing.Color.White;
-            this.lblEndDate.Location = new System.Drawing.Point(30, 410);
-            this.lblEndDate.Name = "lblEndDate";
-            this.lblEndDate.TabIndex = 8;
-            this.lblEndDate.Text = "End Date";
-            this.txtEndDate.BackColor = System.Drawing.Color.FromArgb(44, 49, 49);
-            this.txtEndDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtEndDate.Font = new System.Drawing.Font("Montserrat", 10F);
-            this.txtEndDate.ForeColor = System.Drawing.Color.White;
-            this.txtEndDate.Location = new System.Drawing.Point(30, 436);
-            this.txtEndDate.Name = "txtEndDate";
-            this.txtEndDate.Size = new System.Drawing.Size(500, 32);
-            this.txtEndDate.TabIndex = 9;
-            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(52, 193, 164);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(193)))), ((int)(((byte)(164)))));
             this.btnAdd.FlatAppearance.BorderSize = 0;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Montserrat Medium", 12F, System.Drawing.FontStyle.Bold);
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(30, 510);
+            this.btnAdd.Location = new System.Drawing.Point(40, 628);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(140, 44);
+            this.btnAdd.Size = new System.Drawing.Size(187, 54);
             this.btnAdd.TabIndex = 99;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            // 
+            // txtCompany
+            // 
+            this.txtCompany.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
+            this.txtCompany.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCompany.Font = new System.Drawing.Font("Montserrat", 10F);
+            this.txtCompany.ForeColor = System.Drawing.Color.White;
+            this.txtCompany.Location = new System.Drawing.Point(40, 143);
+            this.txtCompany.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCompany.Name = "txtCompany";
+            this.txtCompany.Size = new System.Drawing.Size(666, 28);
+            this.txtCompany.TabIndex = 1;
+            // 
+            // txtJobRole
+            // 
+            this.txtJobRole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
+            this.txtJobRole.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtJobRole.Font = new System.Drawing.Font("Montserrat", 10F);
+            this.txtJobRole.ForeColor = System.Drawing.Color.White;
+            this.txtJobRole.Location = new System.Drawing.Point(40, 241);
+            this.txtJobRole.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtJobRole.Name = "txtJobRole";
+            this.txtJobRole.Size = new System.Drawing.Size(666, 28);
+            this.txtJobRole.TabIndex = 3;
+            // 
+            // txtDescription
+            // 
+            this.txtDescription.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
+            this.txtDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDescription.Font = new System.Drawing.Font("Montserrat", 10F);
+            this.txtDescription.ForeColor = System.Drawing.Color.White;
+            this.txtDescription.Location = new System.Drawing.Point(40, 340);
+            this.txtDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDescription.Multiline = true;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(666, 86);
+            this.txtDescription.TabIndex = 5;
+            // 
+            // txtStartYear
+            // 
+            this.txtStartYear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
+            this.txtStartYear.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtStartYear.Font = new System.Drawing.Font("Montserrat", 10F);
+            this.txtStartYear.ForeColor = System.Drawing.Color.White;
+            this.txtStartYear.Location = new System.Drawing.Point(40, 438);
+            this.txtStartYear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtStartYear.Name = "txtStartYear";
+            this.txtStartYear.Size = new System.Drawing.Size(666, 28);
+            this.txtStartYear.TabIndex = 7;
+            // 
+            // txtEndDate
+            // 
+            this.txtEndDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
+            this.txtEndDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtEndDate.Font = new System.Drawing.Font("Montserrat", 10F);
+            this.txtEndDate.ForeColor = System.Drawing.Color.White;
+            this.txtEndDate.Location = new System.Drawing.Point(40, 537);
+            this.txtEndDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEndDate.Name = "txtEndDate";
+            this.txtEndDate.Size = new System.Drawing.Size(666, 28);
+            this.txtEndDate.TabIndex = 9;
+            // 
+            // lblCompany
+            // 
+            this.lblCompany.AutoSize = true;
+            this.lblCompany.Font = new System.Drawing.Font("Montserrat Medium", 10F, System.Drawing.FontStyle.Bold);
+            this.lblCompany.ForeColor = System.Drawing.Color.White;
+            this.lblCompany.Location = new System.Drawing.Point(40, 111);
+            this.lblCompany.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCompany.Name = "lblCompany";
+            this.lblCompany.Size = new System.Drawing.Size(156, 26);
+            this.lblCompany.TabIndex = 0;
+            this.lblCompany.Text = "Company Name";
+            // 
+            // lblJobRole
+            // 
+            this.lblJobRole.AutoSize = true;
+            this.lblJobRole.Font = new System.Drawing.Font("Montserrat Medium", 10F, System.Drawing.FontStyle.Bold);
+            this.lblJobRole.ForeColor = System.Drawing.Color.White;
+            this.lblJobRole.Location = new System.Drawing.Point(40, 209);
+            this.lblJobRole.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblJobRole.Name = "lblJobRole";
+            this.lblJobRole.Size = new System.Drawing.Size(91, 26);
+            this.lblJobRole.TabIndex = 2;
+            this.lblJobRole.Text = "Job Role";
+            // 
+            // lblDescription
+            // 
+            this.lblDescription.AutoSize = true;
+            this.lblDescription.Font = new System.Drawing.Font("Montserrat Medium", 10F, System.Drawing.FontStyle.Bold);
+            this.lblDescription.ForeColor = System.Drawing.Color.White;
+            this.lblDescription.Location = new System.Drawing.Point(40, 308);
+            this.lblDescription.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDescription.Name = "lblDescription";
+            this.lblDescription.Size = new System.Drawing.Size(116, 26);
+            this.lblDescription.TabIndex = 4;
+            this.lblDescription.Text = "Description";
+            // 
+            // lblStartYear
+            // 
+            this.lblStartYear.AutoSize = true;
+            this.lblStartYear.Font = new System.Drawing.Font("Montserrat Medium", 10F, System.Drawing.FontStyle.Bold);
+            this.lblStartYear.ForeColor = System.Drawing.Color.White;
+            this.lblStartYear.Location = new System.Drawing.Point(40, 406);
+            this.lblStartYear.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblStartYear.Name = "lblStartYear";
+            this.lblStartYear.Size = new System.Drawing.Size(100, 26);
+            this.lblStartYear.TabIndex = 6;
+            this.lblStartYear.Text = "Start Year";
+            // 
+            // lblEndDate
+            // 
+            this.lblEndDate.AutoSize = true;
+            this.lblEndDate.Font = new System.Drawing.Font("Montserrat Medium", 10F, System.Drawing.FontStyle.Bold);
+            this.lblEndDate.ForeColor = System.Drawing.Color.White;
+            this.lblEndDate.Location = new System.Drawing.Point(40, 505);
+            this.lblEndDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEndDate.Name = "lblEndDate";
+            this.lblEndDate.Size = new System.Drawing.Size(97, 26);
+            this.lblEndDate.TabIndex = 8;
+            this.lblEndDate.Text = "End Date";
+            // 
+            // Add_Internships
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(44, 49, 49);
-            this.ClientSize = new System.Drawing.Size(1180, 656);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
+            this.ClientSize = new System.Drawing.Size(1573, 807);
             this.Controls.Add(this.lblPageTitle);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.panelCard);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "Add_Internships";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Internship";
+            this.Load += new System.EventHandler(this.Add_Internships_Load);
             this.panelCard.ResumeLayout(false);
             this.panelCard.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
         #endregion
         private System.Windows.Forms.Label lblPageTitle;

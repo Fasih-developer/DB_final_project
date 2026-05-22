@@ -11,6 +11,7 @@ namespace CampusConnect.Forms
             InitializeComponent();
         }
 
+
         private void btnSignIn_Click(object sender, EventArgs e)
         {
             string username = txtUsername.Text.Trim();
@@ -28,7 +29,6 @@ namespace CampusConnect.Forms
                 con.Open();
 
                 string query = "SELECT AccountID FROM user_accounts WHERE Username = @username AND Password = @password AND IsActive = 1";
-
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@username", username);
                 cmd.Parameters.AddWithValue("@password", password);
@@ -37,13 +37,17 @@ namespace CampusConnect.Forms
 
                 if (reader.Read())
                 {
+                    int accountID = Convert.ToInt32(reader["AccountID"]);
                     reader.Close();
                     con.Close();
+
+                    Session.AccountID = accountID;
 
                     Profile form = new Profile();
                     form.Show();
                     this.Hide();
                 }
+
                 else
                 {
                     reader.Close();
@@ -63,5 +67,7 @@ namespace CampusConnect.Forms
             form.Show();
             this.Hide();
         }
+
+        private void Login_Load(object sender, EventArgs e) { }
     }
 }

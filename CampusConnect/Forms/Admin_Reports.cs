@@ -16,5 +16,10 @@ namespace CampusConnect.Forms
             form.Show();
             this.Hide();
         }
+
+        private void Admin_Reports_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

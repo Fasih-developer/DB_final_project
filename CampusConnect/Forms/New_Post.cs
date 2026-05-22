@@ -22,5 +22,10 @@ namespace CampusConnect.Forms
             My_Posts form = new My_Posts();
             form.Show(); this.Hide();
         }
+
+        private void New_Post_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

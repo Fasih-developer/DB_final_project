@@ -21,5 +21,10 @@ namespace CampusConnect.Forms
             Add_Internships form = new Add_Internships();
             form.Show(); this.Hide();
         }
+
+        private void Internship_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

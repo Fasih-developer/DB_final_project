@@ -22,5 +22,10 @@ namespace CampusConnect.Forms
             Certificates form = new Certificates();
             form.Show(); this.Hide();
         }
+
+        private void Add_Certifications_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

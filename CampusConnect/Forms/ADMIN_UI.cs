@@ -30,5 +30,10 @@ namespace CampusConnect.Forms
             form.Show();
             this.Hide();
         }
+
+        private void ADMIN_UI_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

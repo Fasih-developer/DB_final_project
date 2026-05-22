@@ -34,9 +34,10 @@ namespace CampusConnect.Forms
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Montserrat", 28F, System.Drawing.FontStyle.Bold);
             this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Location = new System.Drawing.Point(390, 60);
+            this.lblTitle.Location = new System.Drawing.Point(520, 74);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(400, 56);
+            this.lblTitle.Size = new System.Drawing.Size(444, 73);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Campus Connect";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -45,23 +46,24 @@ namespace CampusConnect.Forms
             // 
             this.lblSubtitle.AutoSize = true;
             this.lblSubtitle.Font = new System.Drawing.Font("Montserrat", 11F);
-            this.lblSubtitle.ForeColor = System.Drawing.Color.FromArgb(180, 180, 180);
-            this.lblSubtitle.Location = new System.Drawing.Point(460, 122);
+            this.lblSubtitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.lblSubtitle.Location = new System.Drawing.Point(613, 150);
+            this.lblSubtitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSubtitle.Name = "lblSubtitle";
-            this.lblSubtitle.Size = new System.Drawing.Size(260, 22);
+            this.lblSubtitle.Size = new System.Drawing.Size(244, 29);
             this.lblSubtitle.TabIndex = 1;
             this.lblSubtitle.Text = "Select your access point";
             // 
             // panelAdmin
             // 
-            this.panelAdmin.BackColor = System.Drawing.Color.FromArgb(68, 72, 71);
-            this.panelAdmin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.panelAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(72)))), ((int)(((byte)(71)))));
             this.panelAdmin.Controls.Add(this.lblAdminTitle);
             this.panelAdmin.Controls.Add(this.lblAdminDesc);
             this.panelAdmin.Controls.Add(this.btnAdmin);
-            this.panelAdmin.Location = new System.Drawing.Point(160, 200);
+            this.panelAdmin.Location = new System.Drawing.Point(213, 246);
+            this.panelAdmin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelAdmin.Name = "panelAdmin";
-            this.panelAdmin.Size = new System.Drawing.Size(380, 280);
+            this.panelAdmin.Size = new System.Drawing.Size(507, 345);
             this.panelAdmin.TabIndex = 2;
             // 
             // lblAdminTitle
@@ -69,32 +71,35 @@ namespace CampusConnect.Forms
             this.lblAdminTitle.AutoSize = true;
             this.lblAdminTitle.Font = new System.Drawing.Font("Montserrat", 18F, System.Drawing.FontStyle.Bold);
             this.lblAdminTitle.ForeColor = System.Drawing.Color.White;
-            this.lblAdminTitle.Location = new System.Drawing.Point(30, 40);
+            this.lblAdminTitle.Location = new System.Drawing.Point(40, 49);
+            this.lblAdminTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAdminTitle.Name = "lblAdminTitle";
-            this.lblAdminTitle.Size = new System.Drawing.Size(200, 36);
+            this.lblAdminTitle.Size = new System.Drawing.Size(218, 46);
             this.lblAdminTitle.TabIndex = 0;
             this.lblAdminTitle.Text = "Admin Panel";
             // 
             // lblAdminDesc
             // 
             this.lblAdminDesc.Font = new System.Drawing.Font("Montserrat", 9.5F);
-            this.lblAdminDesc.ForeColor = System.Drawing.Color.FromArgb(180, 180, 180);
-            this.lblAdminDesc.Location = new System.Drawing.Point(30, 90);
+            this.lblAdminDesc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.lblAdminDesc.Location = new System.Drawing.Point(40, 111);
+            this.lblAdminDesc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAdminDesc.Name = "lblAdminDesc";
-            this.lblAdminDesc.Size = new System.Drawing.Size(310, 80);
+            this.lblAdminDesc.Size = new System.Drawing.Size(413, 98);
             this.lblAdminDesc.TabIndex = 1;
             this.lblAdminDesc.Text = "Manage users, view reports and oversee platform activity.";
             // 
             // btnAdmin
             // 
-            this.btnAdmin.BackColor = System.Drawing.Color.FromArgb(52, 193, 164);
+            this.btnAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(193)))), ((int)(((byte)(164)))));
             this.btnAdmin.FlatAppearance.BorderSize = 0;
             this.btnAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdmin.Font = new System.Drawing.Font("Montserrat Medium", 11F, System.Drawing.FontStyle.Bold);
             this.btnAdmin.ForeColor = System.Drawing.Color.White;
-            this.btnAdmin.Location = new System.Drawing.Point(30, 200);
+            this.btnAdmin.Location = new System.Drawing.Point(40, 246);
+            this.btnAdmin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAdmin.Name = "btnAdmin";
-            this.btnAdmin.Size = new System.Drawing.Size(140, 42);
+            this.btnAdmin.Size = new System.Drawing.Size(187, 52);
             this.btnAdmin.TabIndex = 2;
             this.btnAdmin.Text = "Enter";
             this.btnAdmin.UseVisualStyleBackColor = false;
@@ -102,13 +107,14 @@ namespace CampusConnect.Forms
             // 
             // panelUser
             // 
-            this.panelUser.BackColor = System.Drawing.Color.FromArgb(68, 72, 71);
+            this.panelUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(72)))), ((int)(((byte)(71)))));
             this.panelUser.Controls.Add(this.lblUserTitle);
             this.panelUser.Controls.Add(this.lblUserDesc);
             this.panelUser.Controls.Add(this.btnUser);
-            this.panelUser.Location = new System.Drawing.Point(640, 200);
+            this.panelUser.Location = new System.Drawing.Point(853, 246);
+            this.panelUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelUser.Name = "panelUser";
-            this.panelUser.Size = new System.Drawing.Size(380, 280);
+            this.panelUser.Size = new System.Drawing.Size(507, 345);
             this.panelUser.TabIndex = 3;
             // 
             // lblUserTitle
@@ -116,32 +122,35 @@ namespace CampusConnect.Forms
             this.lblUserTitle.AutoSize = true;
             this.lblUserTitle.Font = new System.Drawing.Font("Montserrat", 18F, System.Drawing.FontStyle.Bold);
             this.lblUserTitle.ForeColor = System.Drawing.Color.White;
-            this.lblUserTitle.Location = new System.Drawing.Point(30, 40);
+            this.lblUserTitle.Location = new System.Drawing.Point(40, 49);
+            this.lblUserTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUserTitle.Name = "lblUserTitle";
-            this.lblUserTitle.Size = new System.Drawing.Size(200, 36);
+            this.lblUserTitle.Size = new System.Drawing.Size(185, 46);
             this.lblUserTitle.TabIndex = 0;
             this.lblUserTitle.Text = "User Panel";
             // 
             // lblUserDesc
             // 
             this.lblUserDesc.Font = new System.Drawing.Font("Montserrat", 9.5F);
-            this.lblUserDesc.ForeColor = System.Drawing.Color.FromArgb(180, 180, 180);
-            this.lblUserDesc.Location = new System.Drawing.Point(30, 90);
+            this.lblUserDesc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.lblUserDesc.Location = new System.Drawing.Point(40, 111);
+            this.lblUserDesc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUserDesc.Name = "lblUserDesc";
-            this.lblUserDesc.Size = new System.Drawing.Size(310, 80);
+            this.lblUserDesc.Size = new System.Drawing.Size(413, 98);
             this.lblUserDesc.TabIndex = 1;
             this.lblUserDesc.Text = "Access your profile, connect with peers and explore opportunities.";
             // 
             // btnUser
             // 
-            this.btnUser.BackColor = System.Drawing.Color.FromArgb(52, 193, 164);
+            this.btnUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(193)))), ((int)(((byte)(164)))));
             this.btnUser.FlatAppearance.BorderSize = 0;
             this.btnUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUser.Font = new System.Drawing.Font("Montserrat Medium", 11F, System.Drawing.FontStyle.Bold);
             this.btnUser.ForeColor = System.Drawing.Color.White;
-            this.btnUser.Location = new System.Drawing.Point(30, 200);
+            this.btnUser.Location = new System.Drawing.Point(40, 246);
+            this.btnUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnUser.Name = "btnUser";
-            this.btnUser.Size = new System.Drawing.Size(140, 42);
+            this.btnUser.Size = new System.Drawing.Size(187, 52);
             this.btnUser.TabIndex = 2;
             this.btnUser.Text = "Enter";
             this.btnUser.UseVisualStyleBackColor = false;
@@ -154,9 +163,10 @@ namespace CampusConnect.Forms
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Montserrat Medium", 11F, System.Drawing.FontStyle.Bold);
             this.btnExit.ForeColor = System.Drawing.Color.White;
-            this.btnExit.Location = new System.Drawing.Point(30, 590);
+            this.btnExit.Location = new System.Drawing.Point(40, 726);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(100, 38);
+            this.btnExit.Size = new System.Drawing.Size(133, 47);
             this.btnExit.TabIndex = 4;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = false;
@@ -164,26 +174,29 @@ namespace CampusConnect.Forms
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(44, 49, 49);
-            this.ClientSize = new System.Drawing.Size(1180, 656);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
+            this.ClientSize = new System.Drawing.Size(1573, 807);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.lblSubtitle);
             this.Controls.Add(this.panelAdmin);
             this.Controls.Add(this.panelUser);
             this.Controls.Add(this.btnExit);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Campus Connect";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.panelAdmin.ResumeLayout(false);
             this.panelAdmin.PerformLayout();
             this.panelUser.ResumeLayout(false);
             this.panelUser.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion

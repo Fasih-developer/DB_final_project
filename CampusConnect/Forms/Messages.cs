@@ -55,5 +55,10 @@ namespace CampusConnect.Forms
         }
         private void btnSearchMsg_Click(object sender, System.EventArgs e) { }
         private void btnStartMessaging_Click(object sender, System.EventArgs e) { }
+
+        private void Messages_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

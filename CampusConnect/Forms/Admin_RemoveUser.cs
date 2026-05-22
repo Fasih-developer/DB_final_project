@@ -26,5 +26,10 @@ namespace CampusConnect.Forms
         {
             // Remove logic will be added with backend
         }
+
+        private void Admin_RemoveUser_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

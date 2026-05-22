@@ -21,5 +21,10 @@ namespace CampusConnect.Forms
             Add_Education form = new Add_Education();
             form.Show(); this.Hide();
         }
+
+        private void Education_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

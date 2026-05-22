@@ -14,5 +14,10 @@ namespace CampusConnect.Forms
         {
             this.Close();
         }
+
+        private void Other_Person_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

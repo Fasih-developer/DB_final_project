@@ -21,5 +21,10 @@ namespace CampusConnect.Forms
             Add_Skills form = new Add_Skills();
             form.Show(); this.Hide();
         }
+
+        private void panelContent_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

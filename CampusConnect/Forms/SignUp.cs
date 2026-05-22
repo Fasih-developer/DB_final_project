@@ -10,6 +10,70 @@ namespace CampusConnect.Forms
         public SignUp()
         {
             InitializeComponent();
+            LoadUniversities();
+            LoadDepartments();
+        }
+
+        private void LoadUniversities()
+        {
+            try
+            {
+                MySqlConnection con = DBConnection.GetConnection();
+                con.Open();
+
+                string query = "SELECT UniversityID, CampusName FROM universities";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                cmbUni.Items.Clear();
+                cmbUni.DisplayMember = "Text";
+                cmbUni.ValueMember = "Value";
+
+                while (reader.Read())
+                {
+                    cmbUni.Items.Add(new { Text = reader["CampusName"].ToString(), Value = reader["UniversityID"].ToString() });
+                }
+
+                reader.Close();
+                con.Close();
+
+                cmbUni.SelectedIndex = -1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading universities: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void LoadDepartments()
+        {
+            try
+            {
+                MySqlConnection con = DBConnection.GetConnection();
+                con.Open();
+
+                string query = "SELECT DepartmentID, DepartmentName FROM departments";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                cmbDept.Items.Clear();
+                cmbDept.DisplayMember = "Text";
+                cmbDept.ValueMember = "Value";
+
+                while (reader.Read())
+                {
+                    cmbDept.Items.Add(new { Text = reader["DepartmentName"].ToString(), Value = reader["DepartmentID"].ToString() });
+                }
+
+                reader.Close();
+                con.Close();
+
+                cmbDept.SelectedIndex = -1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading departments: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnSignUp_Click(object sender, EventArgs e)
@@ -26,6 +90,19 @@ namespace CampusConnect.Forms
                 return;
             }
 
+            // Combo boxes check
+            if (cmbUni.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a University.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (cmbDept.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a Department.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             // Full name: only letters and spaces allowed
             if (!Regex.IsMatch(fullName, @"^[a-zA-Z ]+$"))
             {
@@ -33,7 +110,7 @@ namespace CampusConnect.Forms
                 return;
             }
 
-            // Email: @ must come before .com
+            // Email validation
             if (!Regex.IsMatch(email, @"^[^@]+@[^@]+\.com$"))
             {
                 MessageBox.Show("Please enter a valid email address.\nExample: example@domain.com", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -46,6 +123,10 @@ namespace CampusConnect.Forms
                 MessageBox.Show("Password must be greater than 6 characters.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
+            // Get selected University and Department IDs
+            int universityID = Convert.ToInt32(((dynamic)cmbUni.SelectedItem).Value);
+            int departmentID = Convert.ToInt32(((dynamic)cmbDept.SelectedItem).Value);
 
             try
             {
@@ -65,7 +146,7 @@ namespace CampusConnect.Forms
                     return;
                 }
 
-                // Split full name into first and last
+                // Split full name
                 string firstName = "";
                 string lastName = "";
                 string[] nameParts = fullName.Split(' ');
@@ -80,7 +161,6 @@ namespace CampusConnect.Forms
                 accountCmd.Parameters.AddWithValue("@password", password);
                 accountCmd.ExecuteNonQuery();
 
-                // Get the new AccountID
                 long accountID = accountCmd.LastInsertedId;
 
                 // Insert into user_profiles
@@ -90,6 +170,16 @@ namespace CampusConnect.Forms
                 profileCmd.Parameters.AddWithValue("@firstName", firstName);
                 profileCmd.Parameters.AddWithValue("@lastName", lastName);
                 profileCmd.ExecuteNonQuery();
+
+                long profileID = profileCmd.LastInsertedId;
+
+                // Insert into campus_enrollment
+                string enrollQuery = "INSERT INTO campus_enrollments (ProfileID, UniversityID, DepartmentID, IsCurrent) VALUES (@profileID, @universityID, @departmentID, 1)";
+                MySqlCommand enrollCmd = new MySqlCommand(enrollQuery, con);
+                enrollCmd.Parameters.AddWithValue("@profileID", profileID);
+                enrollCmd.Parameters.AddWithValue("@universityID", universityID);
+                enrollCmd.Parameters.AddWithValue("@departmentID", departmentID);
+                enrollCmd.ExecuteNonQuery();
 
                 con.Close();
 
@@ -110,6 +200,31 @@ namespace CampusConnect.Forms
             CampusConnectform form = new CampusConnectform();
             form.Show();
             this.Hide();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelCard_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void SignUp_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
