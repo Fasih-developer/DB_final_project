@@ -39,7 +39,7 @@ namespace CampusConnect.Forms
             this.btnExit.Font = new System.Drawing.Font("Montserrat Medium", 10F, System.Drawing.FontStyle.Bold);
             this.btnExit.ForeColor = System.Drawing.Color.White;
             this.btnExit.Location = new System.Drawing.Point(53, 734);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(4);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(147, 47);
             this.btnExit.TabIndex = 1;
@@ -55,7 +55,7 @@ namespace CampusConnect.Forms
             this.btnAddMore.Font = new System.Drawing.Font("Montserrat Medium", 10F, System.Drawing.FontStyle.Bold);
             this.btnAddMore.ForeColor = System.Drawing.Color.White;
             this.btnAddMore.Location = new System.Drawing.Point(1360, 37);
-            this.btnAddMore.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddMore.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddMore.Name = "btnAddMore";
             this.btnAddMore.Size = new System.Drawing.Size(173, 49);
             this.btnAddMore.TabIndex = 2;
@@ -68,7 +68,7 @@ namespace CampusConnect.Forms
             this.panelContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(72)))), ((int)(((byte)(71)))));
             this.panelContent.Controls.Add(this.lblPlaceholder);
             this.panelContent.Location = new System.Drawing.Point(53, 116);
-            this.panelContent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelContent.Margin = new System.Windows.Forms.Padding(4);
             this.panelContent.Name = "panelContent";
             this.panelContent.Size = new System.Drawing.Size(1480, 591);
             this.panelContent.TabIndex = 3;
@@ -96,11 +96,12 @@ namespace CampusConnect.Forms
             this.Controls.Add(this.btnAddMore);
             this.Controls.Add(this.panelContent);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "Skills";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "My Skills";
+            this.Load += new System.EventHandler(this.Skills_Load);
             this.panelContent.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

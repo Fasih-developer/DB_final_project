@@ -25,6 +25,7 @@ namespace CampusConnect.Forms
             this.lblDescription = new System.Windows.Forms.Label();
             this.lblStartYear = new System.Windows.Forms.Label();
             this.lblEndDate = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panelCard.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,7 +49,7 @@ namespace CampusConnect.Forms
             this.btnExit.Font = new System.Drawing.Font("Montserrat Medium", 10F, System.Drawing.FontStyle.Bold);
             this.btnExit.ForeColor = System.Drawing.Color.White;
             this.btnExit.Location = new System.Drawing.Point(53, 734);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(4);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(147, 47);
             this.btnExit.TabIndex = 1;
@@ -59,6 +60,7 @@ namespace CampusConnect.Forms
             // panelCard
             // 
             this.panelCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(72)))), ((int)(((byte)(71)))));
+            this.panelCard.Controls.Add(this.label1);
             this.panelCard.Controls.Add(this.btnAdd);
             this.panelCard.Controls.Add(this.txtCompany);
             this.panelCard.Controls.Add(this.txtJobRole);
@@ -71,7 +73,7 @@ namespace CampusConnect.Forms
             this.panelCard.Controls.Add(this.lblStartYear);
             this.panelCard.Controls.Add(this.lblEndDate);
             this.panelCard.Location = new System.Drawing.Point(400, 74);
-            this.panelCard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelCard.Margin = new System.Windows.Forms.Padding(4);
             this.panelCard.Name = "panelCard";
             this.panelCard.Size = new System.Drawing.Size(773, 726);
             this.panelCard.TabIndex = 2;
@@ -84,7 +86,7 @@ namespace CampusConnect.Forms
             this.btnAdd.Font = new System.Drawing.Font("Montserrat Medium", 12F, System.Drawing.FontStyle.Bold);
             this.btnAdd.ForeColor = System.Drawing.Color.White;
             this.btnAdd.Location = new System.Drawing.Point(40, 628);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(187, 54);
             this.btnAdd.TabIndex = 99;
@@ -99,7 +101,7 @@ namespace CampusConnect.Forms
             this.txtCompany.Font = new System.Drawing.Font("Montserrat", 10F);
             this.txtCompany.ForeColor = System.Drawing.Color.White;
             this.txtCompany.Location = new System.Drawing.Point(40, 143);
-            this.txtCompany.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCompany.Margin = new System.Windows.Forms.Padding(4);
             this.txtCompany.Name = "txtCompany";
             this.txtCompany.Size = new System.Drawing.Size(666, 28);
             this.txtCompany.TabIndex = 1;
@@ -111,7 +113,7 @@ namespace CampusConnect.Forms
             this.txtJobRole.Font = new System.Drawing.Font("Montserrat", 10F);
             this.txtJobRole.ForeColor = System.Drawing.Color.White;
             this.txtJobRole.Location = new System.Drawing.Point(40, 241);
-            this.txtJobRole.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtJobRole.Margin = new System.Windows.Forms.Padding(4);
             this.txtJobRole.Name = "txtJobRole";
             this.txtJobRole.Size = new System.Drawing.Size(666, 28);
             this.txtJobRole.TabIndex = 3;
@@ -123,7 +125,7 @@ namespace CampusConnect.Forms
             this.txtDescription.Font = new System.Drawing.Font("Montserrat", 10F);
             this.txtDescription.ForeColor = System.Drawing.Color.White;
             this.txtDescription.Location = new System.Drawing.Point(40, 340);
-            this.txtDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDescription.Margin = new System.Windows.Forms.Padding(4);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(666, 86);
@@ -135,8 +137,8 @@ namespace CampusConnect.Forms
             this.txtStartYear.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtStartYear.Font = new System.Drawing.Font("Montserrat", 10F);
             this.txtStartYear.ForeColor = System.Drawing.Color.White;
-            this.txtStartYear.Location = new System.Drawing.Point(40, 438);
-            this.txtStartYear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtStartYear.Location = new System.Drawing.Point(40, 473);
+            this.txtStartYear.Margin = new System.Windows.Forms.Padding(4);
             this.txtStartYear.Name = "txtStartYear";
             this.txtStartYear.Size = new System.Drawing.Size(666, 28);
             this.txtStartYear.TabIndex = 7;
@@ -147,8 +149,8 @@ namespace CampusConnect.Forms
             this.txtEndDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtEndDate.Font = new System.Drawing.Font("Montserrat", 10F);
             this.txtEndDate.ForeColor = System.Drawing.Color.White;
-            this.txtEndDate.Location = new System.Drawing.Point(40, 537);
-            this.txtEndDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEndDate.Location = new System.Drawing.Point(40, 548);
+            this.txtEndDate.Margin = new System.Windows.Forms.Padding(4);
             this.txtEndDate.Name = "txtEndDate";
             this.txtEndDate.Size = new System.Drawing.Size(666, 28);
             this.txtEndDate.TabIndex = 9;
@@ -206,12 +208,24 @@ namespace CampusConnect.Forms
             this.lblEndDate.AutoSize = true;
             this.lblEndDate.Font = new System.Drawing.Font("Montserrat Medium", 10F, System.Drawing.FontStyle.Bold);
             this.lblEndDate.ForeColor = System.Drawing.Color.White;
-            this.lblEndDate.Location = new System.Drawing.Point(40, 505);
+            this.lblEndDate.Location = new System.Drawing.Point(40, 518);
             this.lblEndDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEndDate.Name = "lblEndDate";
             this.lblEndDate.Size = new System.Drawing.Size(97, 26);
             this.lblEndDate.TabIndex = 8;
             this.lblEndDate.Text = "End Date";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Montserrat Medium", 10F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(40, 443);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(105, 26);
+            this.label1.TabIndex = 100;
+            this.label1.Text = "Start Date";
             // 
             // Add_Internships
             // 
@@ -223,7 +237,7 @@ namespace CampusConnect.Forms
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.panelCard);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "Add_Internships";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -250,5 +264,6 @@ namespace CampusConnect.Forms
         private System.Windows.Forms.TextBox txtStartYear;
         private System.Windows.Forms.Label lblEndDate;
         private System.Windows.Forms.TextBox txtEndDate;
+        private System.Windows.Forms.Label label1;
     }
 }

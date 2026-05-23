@@ -172,5 +172,37 @@ namespace CampusConnect.Forms
         {
 
         }
+
+        private void btnSaveBio_Click(object sender, EventArgs e)
+        {
+            string bio = txtBio.Text.Trim();
+
+            if (bio.Length > 150)
+            {
+                MessageBox.Show("Bio cannot exceed 150 characters.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                MySqlConnection con = DBConnection.GetConnection();
+                con.Open();
+
+                string query = "UPDATE user_profiles SET Bio = @bio WHERE AccountID = @accountID";
+
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@bio", bio);
+                cmd.Parameters.AddWithValue("@accountID", _accountID);
+                cmd.ExecuteNonQuery();
+
+                con.Close();
+
+                MessageBox.Show("Bio saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error saving bio: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

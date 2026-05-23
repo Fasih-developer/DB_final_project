@@ -54,7 +54,7 @@ namespace CampusConnect.Forms
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtBio = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.btnsavebio = new System.Windows.Forms.Button();
+            this.btnSaveBio = new System.Windows.Forms.Button();
             this.panelNav.SuspendLayout();
             this.panelSkills.SuspendLayout();
             this.panelCertificates.SuspendLayout();
@@ -452,7 +452,7 @@ namespace CampusConnect.Forms
             // 
             this.txtUni.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
             this.txtUni.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtUni.Font = new System.Drawing.Font("Montserrat Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUni.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUni.ForeColor = System.Drawing.Color.White;
             this.txtUni.Location = new System.Drawing.Point(661, 134);
             this.txtUni.Multiline = true;
@@ -464,7 +464,7 @@ namespace CampusConnect.Forms
             // 
             this.txtDept.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
             this.txtDept.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtDept.Font = new System.Drawing.Font("Montserrat Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDept.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDept.ForeColor = System.Drawing.Color.White;
             this.txtDept.Location = new System.Drawing.Point(661, 192);
             this.txtDept.Multiline = true;
@@ -476,7 +476,7 @@ namespace CampusConnect.Forms
             // 
             this.txtGender.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
             this.txtGender.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtGender.Font = new System.Drawing.Font("Montserrat Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGender.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtGender.ForeColor = System.Drawing.Color.White;
             this.txtGender.Location = new System.Drawing.Point(661, 76);
             this.txtGender.Multiline = true;
@@ -488,7 +488,7 @@ namespace CampusConnect.Forms
             // 
             this.txtAge.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
             this.txtAge.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtAge.Font = new System.Drawing.Font("Montserrat Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAge.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAge.ForeColor = System.Drawing.Color.White;
             this.txtAge.Location = new System.Drawing.Point(182, 133);
             this.txtAge.Multiline = true;
@@ -500,7 +500,7 @@ namespace CampusConnect.Forms
             // 
             this.txtCreatedAt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
             this.txtCreatedAt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtCreatedAt.Font = new System.Drawing.Font("Montserrat Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCreatedAt.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCreatedAt.ForeColor = System.Drawing.Color.White;
             this.txtCreatedAt.Location = new System.Drawing.Point(182, 189);
             this.txtCreatedAt.Multiline = true;
@@ -512,7 +512,7 @@ namespace CampusConnect.Forms
             // 
             this.txtName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
             this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtName.Font = new System.Drawing.Font("Montserrat Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.ForeColor = System.Drawing.Color.White;
             this.txtName.Location = new System.Drawing.Point(182, 75);
             this.txtName.Multiline = true;
@@ -607,7 +607,7 @@ namespace CampusConnect.Forms
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(72)))), ((int)(((byte)(71)))));
-            this.panel2.Controls.Add(this.btnsavebio);
+            this.panel2.Controls.Add(this.btnSaveBio);
             this.panel2.Controls.Add(this.txtBio);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Location = new System.Drawing.Point(1290, 145);
@@ -620,6 +620,7 @@ namespace CampusConnect.Forms
             // 
             this.txtBio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
             this.txtBio.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBio.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBio.ForeColor = System.Drawing.Color.White;
             this.txtBio.Location = new System.Drawing.Point(21, 59);
             this.txtBio.Multiline = true;
@@ -640,21 +641,20 @@ namespace CampusConnect.Forms
             this.label8.TabIndex = 0;
             this.label8.Text = "Enter Bio";
             // 
-            // btnsavebio
+            // btnSaveBio
             // 
-            this.btnsavebio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(193)))), ((int)(((byte)(164)))));
-            this.btnsavebio.FlatAppearance.BorderSize = 0;
-            this.btnsavebio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnsavebio.Font = new System.Drawing.Font("Montserrat Medium", 9F, System.Drawing.FontStyle.Bold);
-            this.btnsavebio.ForeColor = System.Drawing.Color.White;
-            this.btnsavebio.Location = new System.Drawing.Point(21, 173);
-            this.btnsavebio.Margin = new System.Windows.Forms.Padding(4);
-            this.btnsavebio.Name = "btnsavebio";
-            this.btnsavebio.Size = new System.Drawing.Size(147, 42);
-            this.btnsavebio.TabIndex = 12;
-            this.btnsavebio.Text = "Check All";
-            this.btnsavebio.UseVisualStyleBackColor = false;
-            this.btnsavebio.Click += new System.EventHandler(this.button1_Click_1);
+            this.btnSaveBio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(193)))), ((int)(((byte)(164)))));
+            this.btnSaveBio.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(193)))), ((int)(((byte)(164)))));
+            this.btnSaveBio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveBio.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveBio.ForeColor = System.Drawing.Color.White;
+            this.btnSaveBio.Location = new System.Drawing.Point(21, 171);
+            this.btnSaveBio.Name = "btnSaveBio";
+            this.btnSaveBio.Size = new System.Drawing.Size(147, 44);
+            this.btnSaveBio.TabIndex = 2;
+            this.btnSaveBio.Text = "Save";
+            this.btnSaveBio.UseVisualStyleBackColor = false;
+            this.btnSaveBio.Click += new System.EventHandler(this.btnSaveBio_Click);
             // 
             // Profile
             // 
@@ -740,6 +740,6 @@ namespace CampusConnect.Forms
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox txtBio;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button btnsavebio;
+        private System.Windows.Forms.Button btnSaveBio;
     }
 }
