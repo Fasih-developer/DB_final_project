@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
 using System.Windows.Forms;
 
 namespace CampusConnect.Forms
@@ -15,25 +8,55 @@ namespace CampusConnect.Forms
         public admin_signin()
         {
             InitializeComponent();
+            ApplyTheme();
+        }
+
+        private void ApplyTheme()
+        {
+            ThemeManager.Apply(this);
+            if (btnThemeToggle != null)
+                btnThemeToggle.Text = ThemeManager.ToggleButtonLabel;
+        }
+
+        private void btnThemeToggle_Click(object sender, EventArgs e)
+        {
+            ThemeManager.Toggle();
+            ApplyTheme();
         }
 
         private void btnSignIn_Click(object sender, EventArgs e)
         {
-            ADMIN_UI form = new ADMIN_UI();
-            form.Show();
-            this.Hide();
+            string username = txtUsername.Text.Trim();
+            string password = txtPassword.Text.Trim();
+
+            if (username == "" || password == "")
+            {
+                MessageBox.Show("Please enter username and password.", "Validation",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Hardcoded admin credentials
+            if (username == "admin" && password == "admin")
+            {
+                new ADMIN_UI().Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Invalid credentials. Access denied.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtPassword.Clear();
+                txtUsername.Focus();
+            }
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Form1 form = new Form1();
-            form.Show();
+            new Form1().Show();
             this.Hide();
         }
 
-        private void admin_signin_Load(object sender, EventArgs e)
-        {
-
-        }
+        private void admin_signin_Load(object sender, EventArgs e) { }
     }
 }

@@ -105,6 +105,7 @@
       <DependentUpon>CampusConnectform.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\DBConnection.cs" />
+    <Compile Include="Classes\ThemeManager.cs" />
     <Compile Include="Forms\admin_signin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -255,6 +256,18 @@
     <Compile Include="Forms\Add_Internships.Designer.cs">
       <DependentUpon>Add_Internships.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Requests.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Requests.Designer.cs">
+      <DependentUpon>Requests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MY_All_Connections.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MY_All_Connections.Designer.cs">
+      <DependentUpon>MY_All_Connections.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\admin_signin.resx">
@@ -313,6 +326,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Search_Person.resx">
       <DependentUpon>Search_Person.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Requests.resx">
+      <DependentUpon>Requests.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MY_All_Connections.resx">
+      <DependentUpon>MY_All_Connections.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Connections.resx">
       <DependentUpon>Connections.cs</DependentUpon>

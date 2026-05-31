@@ -1,62 +1,45 @@
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace CampusConnect.Forms
 {
     public partial class Connections : Form
     {
-        public Connections()
+        public Connections() {
+            ApplyTheme(); InitializeComponent(); }
+        private void Connections_Load(object sender, EventArgs e) { }
+
+        private void btnRequests_Click(object sender, EventArgs e)
         {
-            InitializeComponent();
+            new Requests().Show(); this.Hide();
         }
 
-        private void btnNavProfile_Click(object sender, System.EventArgs e)
+        private void btnMyConnections_Click(object sender, EventArgs e)
         {
-            Profile form = new Profile();
-            form.Show(); this.Hide();
+            new MY_All_Connections().Show(); this.Hide();
         }
 
-        private void btnNavSearch_Click(object sender, System.EventArgs e)
-        {
-            Search_Person form = new Search_Person();
-            form.Show(); this.Hide();
-        }
-
+        private void btnNavProfile_Click(object sender, System.EventArgs e) { new Profile().Show(); this.Hide(); }
+        private void btnNavSearch_Click(object sender, System.EventArgs e) { new Search_Person().Show(); this.Hide(); }
         private void btnNavConnections_Click(object sender, System.EventArgs e) { }
-
-        private void btnNavUniversities_Click(object sender, System.EventArgs e)
+        private void btnNavUniversities_Click(object sender, System.EventArgs e) { new University().Show(); this.Hide(); }
+        private void btnNavPosts_Click(object sender, System.EventArgs e) { new Posts().Show(); this.Hide(); }
+        private void btnNavMessages_Click(object sender, System.EventArgs e) { new Messages().Show(); this.Hide(); }
+        private void btnNavEvents_Click(object sender, System.EventArgs e) { new Events().Show(); this.Hide(); }
+        private void btnLogout_Click(object sender, System.EventArgs e) { new Form1().Show(); this.Hide(); }
+        private void ApplyTheme()
         {
-            University form = new University();
-            form.Show(); this.Hide();
+            ThemeManager.Apply(this);
+            if (btnThemeToggle != null)
+                btnThemeToggle.Text = ThemeManager.ToggleButtonLabel;
         }
 
-        private void btnNavPosts_Click(object sender, System.EventArgs e)
+        private void btnThemeToggle_Click(object sender, EventArgs e)
         {
-            Posts form = new Posts();
-            form.Show(); this.Hide();
+            ThemeManager.Toggle();
+            ApplyTheme();
         }
 
-        private void btnNavMessages_Click(object sender, System.EventArgs e)
-        {
-            Messages form = new Messages();
-            form.Show(); this.Hide();
-        }
-
-        private void btnNavEvents_Click(object sender, System.EventArgs e)
-        {
-            Events form = new Events();
-            form.Show(); this.Hide();
-        }
-
-        private void btnLogout_Click(object sender, System.EventArgs e)
-        {
-            Form1 form = new Form1();
-            form.Show(); this.Hide();
-        }
-
-        private void Connections_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

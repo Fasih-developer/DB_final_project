@@ -55,6 +55,9 @@ namespace CampusConnect.Forms
             this.txtBio = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.btnSaveBio = new System.Windows.Forms.Button();
+            this.btnAddBio = new System.Windows.Forms.Button();
+            this.btnEditBio = new System.Windows.Forms.Button();
+            this.btnThemeToggle = new System.Windows.Forms.Button();
             this.panelNav.SuspendLayout();
             this.panelSkills.SuspendLayout();
             this.panelCertificates.SuspendLayout();
@@ -608,6 +611,8 @@ namespace CampusConnect.Forms
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(72)))), ((int)(((byte)(71)))));
             this.panel2.Controls.Add(this.btnSaveBio);
+            this.panel2.Controls.Add(this.btnAddBio);
+            this.panel2.Controls.Add(this.btnEditBio);
             this.panel2.Controls.Add(this.txtBio);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Location = new System.Drawing.Point(1290, 145);
@@ -655,6 +660,46 @@ namespace CampusConnect.Forms
             this.btnSaveBio.Text = "Save";
             this.btnSaveBio.UseVisualStyleBackColor = false;
             this.btnSaveBio.Click += new System.EventHandler(this.btnSaveBio_Click);
+            // btnAddBio
+            this.btnAddBio.BackColor = System.Drawing.Color.FromArgb(52, 193, 164);
+            this.btnAddBio.FlatAppearance.BorderSize = 0;
+            this.btnAddBio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddBio.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold);
+            this.btnAddBio.ForeColor = System.Drawing.Color.White;
+            this.btnAddBio.Location = new System.Drawing.Point(21, 171);
+            this.btnAddBio.Name = "btnAddBio";
+            this.btnAddBio.Size = new System.Drawing.Size(147, 44);
+            this.btnAddBio.TabIndex = 12;
+            this.btnAddBio.Text = "Add Bio";
+            this.btnAddBio.UseVisualStyleBackColor = false;
+            this.btnAddBio.Click += new System.EventHandler(this.btnAddBio_Click);
+            // btnEditBio
+            this.btnEditBio.BackColor = System.Drawing.Color.FromArgb(52, 193, 164);
+            this.btnEditBio.FlatAppearance.BorderSize = 0;
+            this.btnEditBio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditBio.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold);
+            this.btnEditBio.ForeColor = System.Drawing.Color.White;
+            this.btnEditBio.Location = new System.Drawing.Point(21, 171);
+            this.btnEditBio.Name = "btnEditBio";
+            this.btnEditBio.Size = new System.Drawing.Size(147, 44);
+            this.btnEditBio.TabIndex = 13;
+            this.btnEditBio.Text = "Edit Bio";
+            this.btnEditBio.Visible = false;
+            this.btnEditBio.UseVisualStyleBackColor = false;
+            this.btnEditBio.Click += new System.EventHandler(this.btnEditBio_Click);
+            // btnThemeToggle
+            this.btnThemeToggle.BackColor = System.Drawing.Color.FromArgb(68, 72, 71);
+            this.btnThemeToggle.FlatAppearance.BorderSize = 0;
+            this.btnThemeToggle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThemeToggle.Font = new System.Drawing.Font("Montserrat Medium", 9F, System.Drawing.FontStyle.Bold);
+            this.btnThemeToggle.ForeColor = System.Drawing.Color.White;
+            this.btnThemeToggle.Location = new System.Drawing.Point(1440, 14);
+            this.btnThemeToggle.Name = "btnThemeToggle";
+            this.btnThemeToggle.Size = new System.Drawing.Size(110, 34);
+            this.btnThemeToggle.TabIndex = 98;
+            this.btnThemeToggle.Text = "\u2600 Light";
+            this.btnThemeToggle.UseVisualStyleBackColor = false;
+            this.btnThemeToggle.Click += new System.EventHandler(this.btnThemeToggle_Click);
             // 
             // Profile
             // 
@@ -663,6 +708,7 @@ namespace CampusConnect.Forms
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(1573, 807);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.btnThemeToggle);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelNav);
             this.Controls.Add(this.lblPageTitle);
@@ -741,5 +787,8 @@ namespace CampusConnect.Forms
         private System.Windows.Forms.TextBox txtBio;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnSaveBio;
+        private System.Windows.Forms.Button btnAddBio;
+        private System.Windows.Forms.Button btnEditBio;
+        private System.Windows.Forms.Button btnThemeToggle;
     }
 }

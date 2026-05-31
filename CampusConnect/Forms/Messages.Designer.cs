@@ -15,6 +15,7 @@ namespace CampusConnect.Forms
             this.panelNav = new System.Windows.Forms.Panel();
             this.lblNavTitle = new System.Windows.Forms.Label();
             this.btnNavProfile = new System.Windows.Forms.Button();
+            this.btnThemeToggle = new System.Windows.Forms.Button();
             this.btnNavSearch = new System.Windows.Forms.Button();
             this.btnNavConnections = new System.Windows.Forms.Button();
             this.btnNavUniversities = new System.Windows.Forms.Button();
@@ -290,6 +291,18 @@ namespace CampusConnect.Forms
             // 
             // Messages
             // 
+            this.btnThemeToggle.BackColor = System.Drawing.Color.FromArgb(68, 72, 71);
+            this.btnThemeToggle.FlatAppearance.BorderSize = 0;
+            this.btnThemeToggle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThemeToggle.Font = new System.Drawing.Font("Montserrat Medium", 9F, System.Drawing.FontStyle.Bold);
+            this.btnThemeToggle.ForeColor = System.Drawing.Color.White;
+            this.btnThemeToggle.Location = new System.Drawing.Point(1440, 14);
+            this.btnThemeToggle.Name = "btnThemeToggle";
+            this.btnThemeToggle.Size = new System.Drawing.Size(110, 34);
+            this.btnThemeToggle.TabIndex = 199;
+            this.btnThemeToggle.Text = "\u2600 Light";
+            this.btnThemeToggle.UseVisualStyleBackColor = false;
+            this.btnThemeToggle.Click += new System.EventHandler(this.btnThemeToggle_Click);
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
@@ -298,6 +311,7 @@ namespace CampusConnect.Forms
             this.Controls.Add(this.lblPageTitle);
             this.Controls.Add(this.panelMsgTop);
             this.Controls.Add(this.panelMsgArea);
+            this.Controls.Add(this.btnThemeToggle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
@@ -330,6 +344,7 @@ namespace CampusConnect.Forms
         private System.Windows.Forms.TextBox txtMsgSearch;
         private System.Windows.Forms.Button btnSearchMsg;
         private System.Windows.Forms.Button btnStartMessaging;
+        private System.Windows.Forms.Button btnThemeToggle;
         private System.Windows.Forms.Panel panelMsgArea;
         private System.Windows.Forms.Label lblMsgPlaceholder;
     }

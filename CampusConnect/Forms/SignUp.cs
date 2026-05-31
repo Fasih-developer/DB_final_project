@@ -9,6 +9,7 @@ namespace CampusConnect.Forms
     {
         public SignUp()
         {
+            ApplyTheme();
             InitializeComponent();
             LoadUniversities();
             LoadDepartments();
@@ -20,29 +21,19 @@ namespace CampusConnect.Forms
             {
                 MySqlConnection con = DBConnection.GetConnection();
                 con.Open();
-
                 string query = "SELECT UniversityID, CampusName FROM universities";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 MySqlDataReader reader = cmd.ExecuteReader();
-
                 cmbUni.Items.Clear();
                 cmbUni.DisplayMember = "Text";
                 cmbUni.ValueMember = "Value";
-
                 while (reader.Read())
-                {
                     cmbUni.Items.Add(new { Text = reader["CampusName"].ToString(), Value = reader["UniversityID"].ToString() });
-                }
-
                 reader.Close();
                 con.Close();
-
                 cmbUni.SelectedIndex = -1;
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error loading universities: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            catch (Exception ex) { MessageBox.Show("Error loading universities: " + ex.Message); }
         }
 
         private void LoadDepartments()
@@ -51,180 +42,124 @@ namespace CampusConnect.Forms
             {
                 MySqlConnection con = DBConnection.GetConnection();
                 con.Open();
-
                 string query = "SELECT DepartmentID, DepartmentName FROM departments";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 MySqlDataReader reader = cmd.ExecuteReader();
-
                 cmbDept.Items.Clear();
                 cmbDept.DisplayMember = "Text";
                 cmbDept.ValueMember = "Value";
-
                 while (reader.Read())
-                {
                     cmbDept.Items.Add(new { Text = reader["DepartmentName"].ToString(), Value = reader["DepartmentID"].ToString() });
-                }
-
                 reader.Close();
                 con.Close();
-
                 cmbDept.SelectedIndex = -1;
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error loading departments: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            catch (Exception ex) { MessageBox.Show("Error loading departments: " + ex.Message); }
         }
 
         private void btnSignUp_Click(object sender, EventArgs e)
         {
-            string fullName = txtFullName.Text.Trim();
-            string email = txtEmail.Text.Trim();
-            string username = txtUsername.Text.Trim();
-            string password = txtPassword.Text.Trim();
+            string fullName  = txtFullName.Text.Trim();
+            string email     = txtEmail.Text.Trim();
+            string username  = txtUsername.Text.Trim();
+            string password  = txtPassword.Text.Trim();
+            string ageText   = txtAge.Text.Trim();
 
-            // Empty fields check
-            if (fullName == "" || email == "" || username == "" || password == "")
-            {
-                MessageBox.Show("Please fill in all fields.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+            if (fullName == "" || email == "" || username == "" || password == "" || ageText == "")
+            { MessageBox.Show("Please fill in all fields.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
 
-            // Combo boxes check
             if (cmbUni.SelectedIndex == -1)
-            {
-                MessageBox.Show("Please select a University.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+            { MessageBox.Show("Please select a University.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
 
             if (cmbDept.SelectedIndex == -1)
-            {
-                MessageBox.Show("Please select a Department.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+            { MessageBox.Show("Please select a Department.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
 
-            // Full name: only letters and spaces allowed
+            if (cmbGender.SelectedIndex == -1)
+            { MessageBox.Show("Please select a Gender.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
+
             if (!Regex.IsMatch(fullName, @"^[a-zA-Z ]+$"))
-            {
-                MessageBox.Show("Full Name can only contain letters and spaces.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+            { MessageBox.Show("Full Name can only contain letters and spaces.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
 
-            // Email validation
             if (!Regex.IsMatch(email, @"^[^@]+@[^@]+\.com$"))
-            {
-                MessageBox.Show("Please enter a valid email address.\nExample: example@domain.com", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+            { MessageBox.Show("Please enter a valid email address.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
 
-            // Password length greater than 6
             if (password.Length <= 6)
-            {
-                MessageBox.Show("Password must be greater than 6 characters.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+            { MessageBox.Show("Password must be greater than 6 characters.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
 
-            // Get selected University and Department IDs
+            int age;
+            if (!int.TryParse(ageText, out age) || age < 10 || age > 100)
+            { MessageBox.Show("Please enter a valid age (10-100).", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
+
             int universityID = Convert.ToInt32(((dynamic)cmbUni.SelectedItem).Value);
             int departmentID = Convert.ToInt32(((dynamic)cmbDept.SelectedItem).Value);
+            // GenderID from lookups: Male=1, Female=2
+            int genderID     = Convert.ToInt32(((dynamic)cmbGender.SelectedItem).Value);
 
             try
             {
                 MySqlConnection con = DBConnection.GetConnection();
                 con.Open();
 
-                // Check if username already exists
                 string checkQuery = "SELECT COUNT(*) FROM user_accounts WHERE Username = @username";
                 MySqlCommand checkCmd = new MySqlCommand(checkQuery, con);
                 checkCmd.Parameters.AddWithValue("@username", username);
-                int count = Convert.ToInt32(checkCmd.ExecuteScalar());
+                if (Convert.ToInt32(checkCmd.ExecuteScalar()) > 0)
+                { con.Close(); MessageBox.Show("Username already exists.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
 
-                if (count > 0)
-                {
-                    con.Close();
-                    MessageBox.Show("Username already exists. Please choose another.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                // Split full name
-                string firstName = "";
-                string lastName = "";
                 string[] nameParts = fullName.Split(' ');
-                firstName = nameParts[0];
-                if (nameParts.Length > 1)
-                    lastName = string.Join(" ", nameParts, 1, nameParts.Length - 1);
+                string firstName = nameParts[0];
+                string lastName = nameParts.Length > 1 ? string.Join(" ", nameParts, 1, nameParts.Length - 1) : "";
 
-                // Insert into user_accounts
                 string accountQuery = "INSERT INTO user_accounts (Username, Password, IsActive, CreatedAt) VALUES (@username, @password, 1, NOW())";
                 MySqlCommand accountCmd = new MySqlCommand(accountQuery, con);
                 accountCmd.Parameters.AddWithValue("@username", username);
                 accountCmd.Parameters.AddWithValue("@password", password);
                 accountCmd.ExecuteNonQuery();
-
                 long accountID = accountCmd.LastInsertedId;
 
-                // Insert into user_profiles
-                string profileQuery = "INSERT INTO user_profiles (AccountID, FirstName, LastName) VALUES (@accountID, @firstName, @lastName)";
+                // Include Gender and Age in profile insert
+                string profileQuery = "INSERT INTO user_profiles (AccountID, FirstName, LastName, Gender, Age) VALUES (@accountID, @firstName, @lastName, @gender, @age)";
                 MySqlCommand profileCmd = new MySqlCommand(profileQuery, con);
                 profileCmd.Parameters.AddWithValue("@accountID", accountID);
                 profileCmd.Parameters.AddWithValue("@firstName", firstName);
                 profileCmd.Parameters.AddWithValue("@lastName", lastName);
+                profileCmd.Parameters.AddWithValue("@gender", genderID);
+                profileCmd.Parameters.AddWithValue("@age", age);
                 profileCmd.ExecuteNonQuery();
-
                 long profileID = profileCmd.LastInsertedId;
 
-                // Insert into campus_enrollment
                 string enrollQuery = "INSERT INTO campus_enrollments (ProfileID, UniversityID, DepartmentID, IsCurrent) VALUES (@profileID, @universityID, @departmentID, 1)";
                 MySqlCommand enrollCmd = new MySqlCommand(enrollQuery, con);
                 enrollCmd.Parameters.AddWithValue("@profileID", profileID);
                 enrollCmd.Parameters.AddWithValue("@universityID", universityID);
                 enrollCmd.Parameters.AddWithValue("@departmentID", departmentID);
                 enrollCmd.ExecuteNonQuery();
-
                 con.Close();
 
                 MessageBox.Show("Account created successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                Login form = new Login();
-                form.Show();
-                this.Hide();
+                new Login().Show(); this.Hide();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            catch (Exception ex) { MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
+        private void btnExit_Click(object sender, EventArgs e) { new CampusConnectform().Show(); this.Hide(); }
+        private void label2_Click(object sender, EventArgs e) { }
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) { }
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e) { }
+        private void panelCard_Paint(object sender, PaintEventArgs e) { }
+        private void SignUp_Load(object sender, EventArgs e) { }
+        private void ApplyTheme()
         {
-            CampusConnectform form = new CampusConnectform();
-            form.Show();
-            this.Hide();
+            ThemeManager.Apply(this);
+            if (btnThemeToggle != null)
+                btnThemeToggle.Text = ThemeManager.ToggleButtonLabel;
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void btnThemeToggle_Click(object sender, EventArgs e)
         {
-
+            ThemeManager.Toggle();
+            ApplyTheme();
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panelCard_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void SignUp_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

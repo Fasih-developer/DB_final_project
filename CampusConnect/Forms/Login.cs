@@ -8,6 +8,7 @@ namespace CampusConnect.Forms
     {
         public Login()
         {
+            ApplyTheme();
             InitializeComponent();
         }
 
@@ -69,5 +70,18 @@ namespace CampusConnect.Forms
         }
 
         private void Login_Load(object sender, EventArgs e) { }
+        private void ApplyTheme()
+        {
+            ThemeManager.Apply(this);
+            if (btnThemeToggle != null)
+                btnThemeToggle.Text = ThemeManager.ToggleButtonLabel;
+        }
+
+        private void btnThemeToggle_Click(object sender, EventArgs e)
+        {
+            ThemeManager.Toggle();
+            ApplyTheme();
+        }
+
     }
 }

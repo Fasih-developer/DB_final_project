@@ -14,7 +14,20 @@ namespace CampusConnect.Forms
     {
         public mainmenu()
         {
+            ApplyTheme();
             InitializeComponent();
         }
+        private void ApplyTheme()
+        {
+            ThemeManager.Apply(this);
+            btnThemeToggle.Text = ThemeManager.ToggleButtonLabel;
+        }
+
+        private void btnThemeToggle_Click(object sender, EventArgs e)
+        {
+            ThemeManager.Toggle();
+            ApplyTheme();
+        }
+
     }
 }
