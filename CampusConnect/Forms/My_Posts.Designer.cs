@@ -12,12 +12,12 @@ namespace CampusConnect.Forms
         private void InitializeComponent()
         {
             this.lblPageTitle = new System.Windows.Forms.Label();
-            this.btnThemeToggle = new System.Windows.Forms.Button();
             this.btnNewPost   = new System.Windows.Forms.Button();
             this.btnExit      = new System.Windows.Forms.Button();
             this.flowPosts    = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // lblPageTitle
+            this.lblPageTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left));
             this.lblPageTitle.AutoSize = true;
             this.lblPageTitle.Font = new System.Drawing.Font("Montserrat", 20F, System.Drawing.FontStyle.Bold);
             this.lblPageTitle.ForeColor = System.Drawing.Color.White;
@@ -31,6 +31,7 @@ namespace CampusConnect.Forms
             this.btnNewPost.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewPost.Font = new System.Drawing.Font("Montserrat Medium", 10F, System.Drawing.FontStyle.Bold);
             this.btnNewPost.ForeColor = System.Drawing.Color.White;
+            this.btnNewPost.Anchor = ((System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right));
             this.btnNewPost.Location = new System.Drawing.Point(1400, 26);
             this.btnNewPost.Name = "btnNewPost";
             this.btnNewPost.Size = new System.Drawing.Size(160, 46);
@@ -44,6 +45,7 @@ namespace CampusConnect.Forms
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Montserrat Medium", 10F, System.Drawing.FontStyle.Bold);
             this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left));
             this.btnExit.Location = new System.Drawing.Point(40, 734);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(147, 47);
@@ -56,23 +58,24 @@ namespace CampusConnect.Forms
             this.flowPosts.BackColor = System.Drawing.Color.FromArgb(44, 49, 49);
             this.flowPosts.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowPosts.WrapContents = false;
+            this.flowPosts.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.flowPosts.Location = new System.Drawing.Point(40, 100);
             this.flowPosts.Name = "flowPosts";
             this.flowPosts.Size = new System.Drawing.Size(1520, 610);
             this.flowPosts.TabIndex = 3;
             // Form
-            this.btnThemeToggle.BackColor = System.Drawing.Color.FromArgb(68, 72, 71);
-            this.btnThemeToggle.FlatAppearance.BorderSize = 0;
-            this.btnThemeToggle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThemeToggle.Font = new System.Drawing.Font("Montserrat Medium", 9F, System.Drawing.FontStyle.Bold);
-            this.btnThemeToggle.ForeColor = System.Drawing.Color.White;
-            this.btnThemeToggle.Location = new System.Drawing.Point(1440, 14);
-            this.btnThemeToggle.Name = "btnThemeToggle";
-            this.btnThemeToggle.Size = new System.Drawing.Size(110, 34);
-            this.btnThemeToggle.TabIndex = 199;
-            this.btnThemeToggle.Text = "\u2600 Light";
-            this.btnThemeToggle.UseVisualStyleBackColor = false;
-            this.btnThemeToggle.Click += new System.EventHandler(this.btnThemeToggle_Click);
+
+
+
+
+
+
+
+
+
+
+
+
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(44, 49, 49);
@@ -81,13 +84,12 @@ namespace CampusConnect.Forms
             this.Controls.Add(this.btnNewPost);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.flowPosts);
-            this.Controls.Add(this.btnThemeToggle);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.Name = "My_Posts";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
+                        this.Name = "My_Posts";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "My Posts";
             this.Load += new System.EventHandler(this.My_Posts_Load);
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
             this.PerformLayout();
         }
@@ -95,7 +97,5 @@ namespace CampusConnect.Forms
         private System.Windows.Forms.Label lblPageTitle;
         private System.Windows.Forms.Button btnNewPost, btnExit;
         private System.Windows.Forms.FlowLayoutPanel flowPosts;
-    
-        private System.Windows.Forms.Button btnThemeToggle;
     }
 }

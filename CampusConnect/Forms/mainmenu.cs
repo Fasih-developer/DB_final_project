@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,17 +17,6 @@ namespace CampusConnect.Forms
             ApplyTheme();
             InitializeComponent();
         }
-        private void ApplyTheme()
-        {
-            ThemeManager.Apply(this);
-            btnThemeToggle.Text = ThemeManager.ToggleButtonLabel;
-        }
-
-        private void btnThemeToggle_Click(object sender, EventArgs e)
-        {
-            ThemeManager.Toggle();
-            ApplyTheme();
-        }
-
+        private void ApplyTheme() { ThemeManager.Apply(this); }
     }
 }

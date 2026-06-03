@@ -15,7 +15,6 @@ namespace CampusConnect.Forms
             this.panelSidebar = new System.Windows.Forms.Panel();
             this.lblSideTitle = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
-            this.btnThemeToggle = new System.Windows.Forms.Button();
             this.panelCard = new System.Windows.Forms.Panel();
             this.lblCardTitle = new System.Windows.Forms.Label();
             this.lblCardSubtitle = new System.Windows.Forms.Label();
@@ -62,6 +61,7 @@ namespace CampusConnect.Forms
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Montserrat Medium", 11F, System.Drawing.FontStyle.Bold);
             this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left));
             this.btnExit.Location = new System.Drawing.Point(27, 738);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(147, 47);
@@ -264,34 +264,33 @@ namespace CampusConnect.Forms
             this.btnSignUp.UseVisualStyleBackColor = false;
             this.btnSignUp.Click += new System.EventHandler(this.btnSignUp_Click);
             // Form
-            this.btnThemeToggle.BackColor = System.Drawing.Color.FromArgb(68, 72, 71);
-            this.btnThemeToggle.FlatAppearance.BorderSize = 0;
-            this.btnThemeToggle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThemeToggle.Font = new System.Drawing.Font("Montserrat Medium", 9F, System.Drawing.FontStyle.Bold);
-            this.btnThemeToggle.ForeColor = System.Drawing.Color.White;
-            this.btnThemeToggle.Location = new System.Drawing.Point(1440, 14);
-            this.btnThemeToggle.Name = "btnThemeToggle";
-            this.btnThemeToggle.Size = new System.Drawing.Size(110, 34);
-            this.btnThemeToggle.TabIndex = 199;
-            this.btnThemeToggle.Text = "\u2600 Light";
-            this.btnThemeToggle.UseVisualStyleBackColor = false;
-            this.btnThemeToggle.Click += new System.EventHandler(this.btnThemeToggle_Click);
+
+
+
+
+
+
+
+
+
+
+
+
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(44, 49, 49);
             this.ClientSize = new System.Drawing.Size(1200, 807);
             this.Controls.Add(this.panelSidebar);
             this.Controls.Add(this.panelCard);
-            this.Controls.Add(this.btnThemeToggle);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.Name = "SignUp";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
+                        this.Name = "SignUp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sign Up";
             this.Load += new System.EventHandler(this.SignUp_Load);
             this.panelSidebar.ResumeLayout(false);
             this.panelCard.ResumeLayout(false);
             this.panelCard.PerformLayout();
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
         }
         #endregion
@@ -309,6 +308,5 @@ namespace CampusConnect.Forms
         private System.Windows.Forms.ComboBox cmbGender;
         private System.Windows.Forms.TextBox txtAge;
         private System.Windows.Forms.Button btnSignUp;
-        private System.Windows.Forms.Button btnThemeToggle;
     }
 }

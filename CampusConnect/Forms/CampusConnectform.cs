@@ -36,17 +36,28 @@ namespace CampusConnect.Forms
         {
 
         }
-        private void ApplyTheme()
+        private void ApplyTheme() { ThemeManager.Apply(this); }
+        protected override void OnResize(EventArgs e)
         {
-            ThemeManager.Apply(this);
-            if (btnThemeToggle != null)
-                btnThemeToggle.Text = ThemeManager.ToggleButtonLabel;
-        }
+            base.OnResize(e);
+            if (panelCreate == null || !IsHandleCreated) return;
 
-        private void btnThemeToggle_Click(object sender, EventArgs e)
-        {
-            ThemeManager.Toggle();
-            ApplyTheme();
+            int navWidth = panelSidebar.Width;
+            int contentWidth = this.ClientSize.Width - navWidth;
+            int totalPanels = panelCreate.Width + panelSignIn.Width + 40;
+            int startX = navWidth + (contentWidth - totalPanels) / 2;
+            if (startX < navWidth + 20) startX = navWidth + 20;
+
+            panelCreate.Left = startX;
+            panelSignIn.Left = startX + panelCreate.Width + 40;
+
+            int midY = (this.ClientSize.Height - panelCreate.Height) / 2;
+            if (midY < 160) midY = 160;
+            panelCreate.Top = midY;
+            panelSignIn.Top = midY;
+
+            lblPageTitle.Left = startX;
+            lblSubtitle.Left = startX;
         }
 
     }

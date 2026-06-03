@@ -163,17 +163,12 @@ namespace CampusConnect.Forms
         private void btnNavMessages_Click(object sender, System.EventArgs e) { new Messages().Show(); this.Hide(); }
         private void btnNavEvents_Click(object sender, System.EventArgs e) { }
         private void btnLogout_Click(object sender, System.EventArgs e) { new Form1().Show(); this.Hide(); }
-        private void ApplyTheme()
+        private void ApplyTheme() { ThemeManager.Apply(this); }
+        protected override void OnResize(EventArgs e)
         {
-            ThemeManager.Apply(this);
-            if (btnThemeToggle != null)
-                btnThemeToggle.Text = ThemeManager.ToggleButtonLabel;
-        }
-
-        private void btnThemeToggle_Click(object sender, EventArgs e)
-        {
-            ThemeManager.Toggle();
-            ApplyTheme();
+            base.OnResize(e);
+            if (flowEvents != null && IsHandleCreated)
+                LoadEvents();
         }
 
     }

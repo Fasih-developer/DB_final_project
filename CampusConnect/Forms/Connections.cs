@@ -28,17 +28,25 @@ namespace CampusConnect.Forms
         private void btnNavMessages_Click(object sender, System.EventArgs e) { new Messages().Show(); this.Hide(); }
         private void btnNavEvents_Click(object sender, System.EventArgs e) { new Events().Show(); this.Hide(); }
         private void btnLogout_Click(object sender, System.EventArgs e) { new Form1().Show(); this.Hide(); }
-        private void ApplyTheme()
+        private void ApplyTheme() { ThemeManager.Apply(this); }
+        protected override void OnResize(EventArgs e)
         {
-            ThemeManager.Apply(this);
-            if (btnThemeToggle != null)
-                btnThemeToggle.Text = ThemeManager.ToggleButtonLabel;
-        }
+            base.OnResize(e);
+            if (panelRequests == null || !IsHandleCreated) return;
 
-        private void btnThemeToggle_Click(object sender, EventArgs e)
-        {
-            ThemeManager.Toggle();
-            ApplyTheme();
+            int navWidth = panelNav.Width;
+            int contentWidth = this.ClientSize.Width - navWidth;
+            int totalW = panelRequests.Width + panelMyConn.Width + 40;
+            int startX = navWidth + (contentWidth - totalW) / 2;
+            if (startX < navWidth + 20) startX = navWidth + 20;
+
+            panelRequests.Left = startX;
+            panelMyConn.Left   = startX + panelRequests.Width + 40;
+
+            int midY = (this.ClientSize.Height - panelRequests.Height) / 2;
+            if (midY < 120) midY = 120;
+            panelRequests.Top = midY;
+            panelMyConn.Top   = midY;
         }
 
     }

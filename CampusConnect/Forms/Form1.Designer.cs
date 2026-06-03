@@ -20,7 +20,6 @@ namespace CampusConnect.Forms
             this.lblAdminTitle = new System.Windows.Forms.Label();
             this.lblAdminDesc = new System.Windows.Forms.Label();
             this.btnAdmin = new System.Windows.Forms.Button();
-            this.btnThemeToggle = new System.Windows.Forms.Button();
             this.panelUser = new System.Windows.Forms.Panel();
             this.lblUserTitle = new System.Windows.Forms.Label();
             this.lblUserDesc = new System.Windows.Forms.Label();
@@ -164,6 +163,7 @@ namespace CampusConnect.Forms
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Montserrat Medium", 11F, System.Drawing.FontStyle.Bold);
             this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left));
             this.btnExit.Location = new System.Drawing.Point(40, 726);
             this.btnExit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnExit.Name = "btnExit";
@@ -174,19 +174,6 @@ namespace CampusConnect.Forms
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // Form1
-            // 
-            this.btnThemeToggle.BackColor = System.Drawing.Color.FromArgb(68, 72, 71);
-            this.btnThemeToggle.FlatAppearance.BorderSize = 0;
-            this.btnThemeToggle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThemeToggle.Font = new System.Drawing.Font("Montserrat Medium", 9F, System.Drawing.FontStyle.Bold);
-            this.btnThemeToggle.ForeColor = System.Drawing.Color.White;
-            this.btnThemeToggle.Location = new System.Drawing.Point(1440, 14);
-            this.btnThemeToggle.Name = "btnThemeToggle";
-            this.btnThemeToggle.Size = new System.Drawing.Size(110, 34);
-            this.btnThemeToggle.TabIndex = 199;
-            this.btnThemeToggle.Text = "\u2600 Light";
-            this.btnThemeToggle.UseVisualStyleBackColor = false;
-            this.btnThemeToggle.Click += new System.EventHandler(this.btnThemeToggle_Click);
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
@@ -196,11 +183,9 @@ namespace CampusConnect.Forms
             this.Controls.Add(this.panelAdmin);
             this.Controls.Add(this.panelUser);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.btnThemeToggle);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.MaximizeBox = false;
-            this.Name = "Form1";
+                        this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Campus Connect";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -208,6 +193,7 @@ namespace CampusConnect.Forms
             this.panelAdmin.PerformLayout();
             this.panelUser.ResumeLayout(false);
             this.panelUser.PerformLayout();
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -226,6 +212,5 @@ namespace CampusConnect.Forms
         private System.Windows.Forms.Label lblUserDesc;
         private System.Windows.Forms.Button btnUser;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Button btnThemeToggle;
     }
 }

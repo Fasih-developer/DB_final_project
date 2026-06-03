@@ -11,19 +11,7 @@ namespace CampusConnect.Forms
             ApplyTheme();
         }
 
-        private void ApplyTheme()
-        {
-            ThemeManager.Apply(this);
-            if (btnThemeToggle != null)
-                btnThemeToggle.Text = ThemeManager.ToggleButtonLabel;
-        }
-
-        private void btnThemeToggle_Click(object sender, EventArgs e)
-        {
-            ThemeManager.Toggle();
-            ApplyTheme();
-        }
-
+        private void ApplyTheme() { ThemeManager.Apply(this); }
         private void btnSignIn_Click(object sender, EventArgs e)
         {
             string username = txtUsername.Text.Trim();

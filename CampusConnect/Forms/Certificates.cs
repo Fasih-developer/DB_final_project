@@ -85,18 +85,6 @@ namespace CampusConnect.Forms
 
         private void btnExit_Click(object sender, EventArgs e) { new Profile().Show(); this.Hide(); }
         private void btnAddMore_Click(object sender, EventArgs e) { new Add_Certifications().Show(); this.Hide(); }
-        private void ApplyTheme()
-        {
-            ThemeManager.Apply(this);
-            if (btnThemeToggle != null)
-                btnThemeToggle.Text = ThemeManager.ToggleButtonLabel;
-        }
-
-        private void btnThemeToggle_Click(object sender, EventArgs e)
-        {
-            ThemeManager.Toggle();
-            ApplyTheme();
-        }
-
+        private void ApplyTheme() { ThemeManager.Apply(this); }
     }
 }

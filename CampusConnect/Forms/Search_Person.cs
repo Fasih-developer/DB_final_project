@@ -10,19 +10,7 @@ namespace CampusConnect.Forms
     {
         public Search_Person() { InitializeComponent(); ApplyTheme(); }
 
-        private void ApplyTheme()
-        {
-            ThemeManager.Apply(this);
-            if (btnThemeToggle != null)
-                btnThemeToggle.Text = ThemeManager.ToggleButtonLabel;
-        }
-
-        private void btnThemeToggle_Click(object sender, EventArgs e)
-        {
-            ThemeManager.Toggle();
-            ApplyTheme();
-        }
-
+        private void ApplyTheme() { ThemeManager.Apply(this); }
         private void btnSearch_Click(object sender, EventArgs e)
         {
             string term = txtSearch.Text.Trim();
@@ -246,5 +234,12 @@ namespace CampusConnect.Forms
         private void btnNavMessages_Click(object sender, EventArgs e) { new Messages().Show(); this.Hide(); }
         private void btnNavEvents_Click(object sender, EventArgs e) { new Events().Show(); this.Hide(); }
         private void btnLogout_Click(object sender, EventArgs e) { new Form1().Show(); this.Hide(); }
+        protected override void OnResize(EventArgs e)
+        {
+            base.OnResize(e);
+            if (flowResults != null && IsHandleCreated) ;
+                //None();
+        }
+
     }
 }

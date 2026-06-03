@@ -50,18 +50,6 @@ namespace CampusConnect.Forms
 
         private void btnExit_Click(object sender, EventArgs e) { new My_Posts().Show(); this.Hide(); }
         private void New_Post_Load(object sender, EventArgs e) { }
-        private void ApplyTheme()
-        {
-            ThemeManager.Apply(this);
-            if (btnThemeToggle != null)
-                btnThemeToggle.Text = ThemeManager.ToggleButtonLabel;
-        }
-
-        private void btnThemeToggle_Click(object sender, EventArgs e)
-        {
-            ThemeManager.Toggle();
-            ApplyTheme();
-        }
-
+        private void ApplyTheme() { ThemeManager.Apply(this); }
     }
 }

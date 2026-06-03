@@ -13,7 +13,6 @@ namespace CampusConnect.Forms
         {
             this.lblPageTitle = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
-            this.btnThemeToggle = new System.Windows.Forms.Button();
             this.btnAddMore = new System.Windows.Forms.Button();
             this.panelContent = new System.Windows.Forms.Panel();
             this.lblPlaceholder = new System.Windows.Forms.Label();
@@ -22,6 +21,7 @@ namespace CampusConnect.Forms
             // 
             // lblPageTitle
             // 
+            this.lblPageTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left));
             this.lblPageTitle.AutoSize = true;
             this.lblPageTitle.Font = new System.Drawing.Font("Montserrat", 20F, System.Drawing.FontStyle.Bold);
             this.lblPageTitle.ForeColor = System.Drawing.Color.White;
@@ -39,6 +39,7 @@ namespace CampusConnect.Forms
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Montserrat Medium", 10F, System.Drawing.FontStyle.Bold);
             this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left));
             this.btnExit.Location = new System.Drawing.Point(53, 734);
             this.btnExit.Margin = new System.Windows.Forms.Padding(4);
             this.btnExit.Name = "btnExit";
@@ -68,6 +69,7 @@ namespace CampusConnect.Forms
             // 
             this.panelContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(72)))), ((int)(((byte)(71)))));
             this.panelContent.Controls.Add(this.lblPlaceholder);
+            this.panelContent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.panelContent.Location = new System.Drawing.Point(53, 116);
             this.panelContent.Margin = new System.Windows.Forms.Padding(4);
             this.panelContent.Name = "panelContent";
@@ -87,19 +89,6 @@ namespace CampusConnect.Forms
             this.lblPlaceholder.Text = "My Skills will appear here...";
             // 
             // Skills
-            // 
-            this.btnThemeToggle.BackColor = System.Drawing.Color.FromArgb(68, 72, 71);
-            this.btnThemeToggle.FlatAppearance.BorderSize = 0;
-            this.btnThemeToggle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThemeToggle.Font = new System.Drawing.Font("Montserrat Medium", 9F, System.Drawing.FontStyle.Bold);
-            this.btnThemeToggle.ForeColor = System.Drawing.Color.White;
-            this.btnThemeToggle.Location = new System.Drawing.Point(1440, 14);
-            this.btnThemeToggle.Name = "btnThemeToggle";
-            this.btnThemeToggle.Size = new System.Drawing.Size(110, 34);
-            this.btnThemeToggle.TabIndex = 199;
-            this.btnThemeToggle.Text = "\u2600 Light";
-            this.btnThemeToggle.UseVisualStyleBackColor = false;
-            this.btnThemeToggle.Click += new System.EventHandler(this.btnThemeToggle_Click);
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
@@ -108,15 +97,14 @@ namespace CampusConnect.Forms
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnAddMore);
             this.Controls.Add(this.panelContent);
-            this.Controls.Add(this.btnThemeToggle);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.MaximizeBox = false;
-            this.Name = "Skills";
+                        this.Name = "Skills";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "My Skills";
             this.Load += new System.EventHandler(this.Skills_Load);
             this.panelContent.ResumeLayout(false);
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -125,7 +113,6 @@ namespace CampusConnect.Forms
         private System.Windows.Forms.Label lblPageTitle;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnAddMore;
-        private System.Windows.Forms.Button btnThemeToggle;
         private System.Windows.Forms.Panel panelContent;
         private System.Windows.Forms.Label lblPlaceholder;
     }

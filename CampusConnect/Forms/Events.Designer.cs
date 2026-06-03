@@ -11,7 +11,6 @@ namespace CampusConnect.Forms
             this.panelNav    = new System.Windows.Forms.Panel();
             this.lblNavTitle = new System.Windows.Forms.Label();
             this.btnNavProfile = new System.Windows.Forms.Button();
-            this.btnThemeToggle = new System.Windows.Forms.Button();
             this.btnNavSearch = new System.Windows.Forms.Button();
             this.btnNavConnections = new System.Windows.Forms.Button();
             this.btnNavUniversities = new System.Windows.Forms.Button();
@@ -115,10 +114,12 @@ namespace CampusConnect.Forms
             this.btnLogout.FlatAppearance.BorderSize = 0; this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.Font = new System.Drawing.Font("Montserrat Medium", 10F, System.Drawing.FontStyle.Bold);
             this.btnLogout.ForeColor = System.Drawing.Color.White;
+            this.btnLogout.Anchor = ((System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left));
             this.btnLogout.Location = new System.Drawing.Point(21, 738);
             this.btnLogout.Name = "btnLogout"; this.btnLogout.Size = new System.Drawing.Size(147, 47); this.btnLogout.TabIndex = 9;
             this.btnLogout.Text = "Logout"; this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            this.lblPageTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left));
             this.lblPageTitle.AutoSize = true;
             this.lblPageTitle.Font = new System.Drawing.Font("Montserrat", 20F, System.Drawing.FontStyle.Bold);
             this.lblPageTitle.ForeColor = System.Drawing.Color.White;
@@ -129,22 +130,23 @@ namespace CampusConnect.Forms
             this.flowEvents.BackColor = System.Drawing.Color.FromArgb(44, 49, 49);
             this.flowEvents.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowEvents.WrapContents = false;
+            this.flowEvents.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.flowEvents.Location = new System.Drawing.Point(313, 80);
             this.flowEvents.Name = "flowEvents";
             this.flowEvents.Size = new System.Drawing.Size(1247, 700);
             this.flowEvents.TabIndex = 11;
-            this.btnThemeToggle.BackColor = System.Drawing.Color.FromArgb(68, 72, 71);
-            this.btnThemeToggle.FlatAppearance.BorderSize = 0;
-            this.btnThemeToggle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThemeToggle.Font = new System.Drawing.Font("Montserrat Medium", 9F, System.Drawing.FontStyle.Bold);
-            this.btnThemeToggle.ForeColor = System.Drawing.Color.White;
-            this.btnThemeToggle.Location = new System.Drawing.Point(1440, 14);
-            this.btnThemeToggle.Name = "btnThemeToggle";
-            this.btnThemeToggle.Size = new System.Drawing.Size(110, 34);
-            this.btnThemeToggle.TabIndex = 199;
-            this.btnThemeToggle.Text = "\u2600 Light";
-            this.btnThemeToggle.UseVisualStyleBackColor = false;
-            this.btnThemeToggle.Click += new System.EventHandler(this.btnThemeToggle_Click);
+
+
+
+
+
+
+
+
+
+
+
+
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(44, 49, 49);
@@ -152,12 +154,11 @@ namespace CampusConnect.Forms
             this.Controls.Add(this.panelNav);
             this.Controls.Add(this.lblPageTitle);
             this.Controls.Add(this.flowEvents);
-            this.Controls.Add(this.btnThemeToggle);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.Name = "Events"; this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen; this.Text = "Events";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
+                        this.Name = "Events"; this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen; this.Text = "Events";
             this.Load += new System.EventHandler(this.Events_Load);
             this.panelNav.ResumeLayout(false);
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false); this.PerformLayout();
         }
         #endregion
@@ -171,7 +172,6 @@ namespace CampusConnect.Forms
         private System.Windows.Forms.Button btnNavMessages;
         private System.Windows.Forms.Button btnNavEvents;
         private System.Windows.Forms.Button btnLogout;
-        private System.Windows.Forms.Button btnThemeToggle;
         private System.Windows.Forms.FlowLayoutPanel flowEvents;
     }
 }

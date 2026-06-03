@@ -14,7 +14,6 @@ namespace CampusConnect.Forms
             this.panelSidebar = new System.Windows.Forms.Panel();
             this.lblSideTitle = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
-            this.btnThemeToggle = new System.Windows.Forms.Button();
             this.lblPageTitle = new System.Windows.Forms.Label();
             this.panelReport1 = new System.Windows.Forms.Panel();
             this.lblReport1 = new System.Windows.Forms.Label();
@@ -89,6 +88,7 @@ namespace CampusConnect.Forms
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Montserrat Medium", 11F, System.Drawing.FontStyle.Bold);
             this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left));
             this.btnExit.Location = new System.Drawing.Point(27, 738);
             this.btnExit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnExit.Name = "btnExit";
@@ -100,6 +100,7 @@ namespace CampusConnect.Forms
             // 
             // lblPageTitle
             // 
+            this.lblPageTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left));
             this.lblPageTitle.AutoSize = true;
             this.lblPageTitle.Font = new System.Drawing.Font("Montserrat", 20F, System.Drawing.FontStyle.Bold);
             this.lblPageTitle.ForeColor = System.Drawing.Color.White;
@@ -481,19 +482,6 @@ namespace CampusConnect.Forms
             this.btnReport10.UseVisualStyleBackColor = false;
             // 
             // Admin_Reports
-            // 
-            this.btnThemeToggle.BackColor = System.Drawing.Color.FromArgb(68, 72, 71);
-            this.btnThemeToggle.FlatAppearance.BorderSize = 0;
-            this.btnThemeToggle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThemeToggle.Font = new System.Drawing.Font("Montserrat Medium", 9F, System.Drawing.FontStyle.Bold);
-            this.btnThemeToggle.ForeColor = System.Drawing.Color.White;
-            this.btnThemeToggle.Location = new System.Drawing.Point(1440, 14);
-            this.btnThemeToggle.Name = "btnThemeToggle";
-            this.btnThemeToggle.Size = new System.Drawing.Size(110, 34);
-            this.btnThemeToggle.TabIndex = 199;
-            this.btnThemeToggle.Text = "\u2600 Light";
-            this.btnThemeToggle.UseVisualStyleBackColor = false;
-            this.btnThemeToggle.Click += new System.EventHandler(this.btnThemeToggle_Click);
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
@@ -510,11 +498,9 @@ namespace CampusConnect.Forms
             this.Controls.Add(this.panelReport8);
             this.Controls.Add(this.panelReport9);
             this.Controls.Add(this.panelReport10);
-            this.Controls.Add(this.btnThemeToggle);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.MaximizeBox = false;
-            this.Name = "Admin_Reports";
+                        this.Name = "Admin_Reports";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reports";
             this.Load += new System.EventHandler(this.Admin_Reports_Load);
@@ -529,6 +515,7 @@ namespace CampusConnect.Forms
             this.panelReport8.ResumeLayout(false);
             this.panelReport9.ResumeLayout(false);
             this.panelReport10.ResumeLayout(false);
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -568,6 +555,5 @@ namespace CampusConnect.Forms
         private System.Windows.Forms.Panel panelReport10;
         private System.Windows.Forms.Label lblReport10;
         private System.Windows.Forms.Button btnReport10;
-        private System.Windows.Forms.Button btnThemeToggle;
     }
 }

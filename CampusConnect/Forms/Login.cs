@@ -8,10 +8,9 @@ namespace CampusConnect.Forms
     {
         public Login()
         {
-            ApplyTheme();
             InitializeComponent();
+            ApplyTheme();
         }
-
 
         private void btnSignIn_Click(object sender, EventArgs e)
         {
@@ -26,34 +25,53 @@ namespace CampusConnect.Forms
 
             try
             {
-                MySqlConnection con = DBConnection.GetConnection();
-                con.Open();
-
-                string query = "SELECT AccountID FROM user_accounts WHERE Username = @username AND Password = @password AND IsActive = 1";
-                MySqlCommand cmd = new MySqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@username", username);
-                cmd.Parameters.AddWithValue("@password", password);
-
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                if (reader.Read())
+                using (MySqlConnection con = DBConnection.GetConnection())
                 {
-                    int accountID = Convert.ToInt32(reader["AccountID"]);
-                    reader.Close();
-                    con.Close();
+                    con.Open();
 
-                    Session.AccountID = accountID;
+                    // Check credentials regardless of IsActive status
+                    string query = "SELECT AccountID, IsActive FROM user_accounts WHERE Username = @username AND Password = @password";
+                    MySqlCommand cmd = new MySqlCommand(query, con);
+                    cmd.Parameters.AddWithValue("@username", username);
+                    cmd.Parameters.AddWithValue("@password", password);
 
-                    Profile form = new Profile();
-                    form.Show();
-                    this.Hide();
-                }
+                    MySqlDataReader reader = cmd.ExecuteReader();
 
-                else
-                {
-                    reader.Close();
-                    con.Close();
-                    MessageBox.Show("Invalid username or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (reader.Read())
+                    {
+                        int accountID = Convert.ToInt32(reader["AccountID"]);
+                        bool isActive = Convert.ToBoolean(reader["IsActive"]);
+                        reader.Close();
+
+                        if (!isActive)
+                        {
+                            // Account inactive — ask to reactivate
+                            var result = MessageBox.Show(
+                                "Your account is currently inactive.\nWould you like to reactivate it?",
+                                "Account Inactive",
+                                MessageBoxButtons.YesNo,
+                                MessageBoxIcon.Question);
+
+                            if (result == DialogResult.No)
+                                return; // stay on login form
+
+                            // Reactivate
+                            string reactivateQ = "UPDATE user_accounts SET IsActive = 1 WHERE AccountID = @accountID";
+                            MySqlCommand reactivateCmd = new MySqlCommand(reactivateQ, con);
+                            reactivateCmd.Parameters.AddWithValue("@accountID", accountID);
+                            reactivateCmd.ExecuteNonQuery();
+                        }
+
+                        con.Close();
+                        Session.AccountID = accountID;
+                        new Profile().Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        reader.Close();
+                        MessageBox.Show("Invalid username or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
             catch (Exception ex)
@@ -64,23 +82,23 @@ namespace CampusConnect.Forms
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            CampusConnectform form = new CampusConnectform();
-            form.Show();
+            new CampusConnectform().Show();
             this.Hide();
         }
 
         private void Login_Load(object sender, EventArgs e) { }
-        private void ApplyTheme()
-        {
-            ThemeManager.Apply(this);
-            if (btnThemeToggle != null)
-                btnThemeToggle.Text = ThemeManager.ToggleButtonLabel;
-        }
 
-        private void btnThemeToggle_Click(object sender, EventArgs e)
+        private void ApplyTheme() { ThemeManager.Apply(this); }
+        protected override void OnResize(EventArgs e)
         {
-            ThemeManager.Toggle();
-            ApplyTheme();
+            base.OnResize(e);
+            if (panelCard != null && IsHandleCreated)
+            {
+                int navWidth = panelSidebar.Width;
+                int contentWidth = this.ClientSize.Width - navWidth;
+                panelCard.Left = navWidth + (contentWidth - panelCard.Width) / 2;
+                panelCard.Top = (this.ClientSize.Height - panelCard.Height) / 2;
+            }
         }
 
     }

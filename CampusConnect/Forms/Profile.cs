@@ -18,19 +18,7 @@ namespace CampusConnect.Forms
             ApplyTheme();
         }
 
-        private void ApplyTheme()
-        {
-            ThemeManager.Apply(this);
-            if (btnThemeToggle != null)
-                btnThemeToggle.Text = ThemeManager.ToggleButtonLabel;
-        }
-
-        private void btnThemeToggle_Click(object sender, EventArgs e)
-        {
-            ThemeManager.Toggle();
-            ApplyTheme();
-        }
-
+        private void ApplyTheme() { ThemeManager.Apply(this); }
         private void Profile_Load(object sender, EventArgs e)
         {
             // Make all info fields read-only
@@ -202,5 +190,60 @@ namespace CampusConnect.Forms
         private void textBox7_TextChanged(object sender, EventArgs e) { }
         private void button1_Click(object sender, EventArgs e) { }
         private void button1_Click_1(object sender, EventArgs e) { }
+
+        private void btnDeactivateAccount_Click(object sender, EventArgs e)
+        {
+            var confirm = MessageBox.Show(
+                "Are you sure you want to deactivate your account?\nYou will be logged out and your account will be inactive.",
+                "Deactivate Account",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+
+            if (confirm != DialogResult.Yes) return;
+
+            try
+            {
+                MySqlConnection con = DBConnection.GetConnection();
+                con.Open();
+                string q = "UPDATE user_accounts SET IsActive = 0 WHERE AccountID = @accountID";
+                MySqlCommand cmd = new MySqlCommand(q, con);
+                cmd.Parameters.AddWithValue("@accountID", _accountID);
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                MessageBox.Show("Your account has been deactivated.", "Account Deactivated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                new Form1().Show();
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        protected override void OnResize(EventArgs e)
+        {
+            base.OnResize(e);
+            if (panel1 == null || !IsHandleCreated) return;
+
+            int navW = panelNav.Width;
+            int avail = this.ClientSize.Width - navW - 40; // 20px margin each side
+
+            // User info panel fills ~60% of width, bio panel ~35%, 5% gap
+            int infoW = (int)(avail * 0.62);
+            int bioW  = avail - infoW - 20;
+
+            panel1.Width  = infoW;
+            panel2.Width  = bioW;
+            panel2.Left   = navW + 20 + infoW + 20;
+
+            // Skill/cert/edu/internship row: 4 equal panels
+            int boxW = (avail - 60) / 4; // 3 gaps of 20px
+            int boxY = panel1.Bottom + 20;
+            panelSkills.Width       = boxW; panelSkills.Left       = navW + 20;          panelSkills.Top       = boxY;
+            panelCertificates.Width = boxW; panelCertificates.Left = navW + 20 + boxW + 20; panelCertificates.Top = boxY;
+            panelEducation.Width    = boxW; panelEducation.Left    = navW + 20 + (boxW + 20) * 2; panelEducation.Top = boxY;
+            panelInternships.Width  = boxW; panelInternships.Left  = navW + 20 + (boxW + 20) * 3; panelInternships.Top = boxY;
+        }
+
     }
 }

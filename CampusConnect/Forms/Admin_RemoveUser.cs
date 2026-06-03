@@ -15,19 +15,7 @@ namespace CampusConnect.Forms
 
         private void Admin_RemoveUser_Load(object sender, EventArgs e) { }
 
-        private void ApplyTheme()
-        {
-            ThemeManager.Apply(this);
-            if (btnThemeToggle != null)
-                btnThemeToggle.Text = ThemeManager.ToggleButtonLabel;
-        }
-
-        private void btnThemeToggle_Click(object sender, EventArgs e)
-        {
-            ThemeManager.Toggle();
-            ApplyTheme();
-        }
-
+        private void ApplyTheme() { ThemeManager.Apply(this); }
         private void btnSearch_Click(object sender, EventArgs e)
         {
             string term = txtSearch.Text.Trim();

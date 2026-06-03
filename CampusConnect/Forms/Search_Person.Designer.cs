@@ -19,7 +19,6 @@ namespace CampusConnect.Forms
             this.txtSearch  = new System.Windows.Forms.TextBox();
             this.btnSearch  = new System.Windows.Forms.Button();
             this.flowResults = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnThemeToggle = new System.Windows.Forms.Button();
             this.panelNav.SuspendLayout(); this.SuspendLayout();
             this.panelNav.BackColor=System.Drawing.Color.FromArgb(68, 72, 71); this.panelNav.Controls.Add(this.lblNavTitle);
             this.panelNav.Controls.Add(this.btnNavProfile);
@@ -40,28 +39,32 @@ namespace CampusConnect.Forms
             this.btnNavPosts.BackColor=System.Drawing.Color.FromArgb(68, 72, 71); this.btnNavPosts.FlatAppearance.BorderSize=0; this.btnNavPosts.FlatStyle=System.Windows.Forms.FlatStyle.Flat; this.btnNavPosts.Font=new System.Drawing.Font("Montserrat Medium",10F,System.Drawing.FontStyle.Bold); this.btnNavPosts.ForeColor=System.Drawing.Color.White; this.btnNavPosts.Location=new System.Drawing.Point(21,322); this.btnNavPosts.Name="btnNavPosts"; this.btnNavPosts.Size=new System.Drawing.Size(251,49); this.btnNavPosts.TabIndex=5; this.btnNavPosts.Text="Posts"; this.btnNavPosts.TextAlign=System.Drawing.ContentAlignment.MiddleLeft; this.btnNavPosts.UseVisualStyleBackColor=false; this.btnNavPosts.Click+=new System.EventHandler(this.btnNavPosts_Click);
             this.btnNavMessages.BackColor=System.Drawing.Color.FromArgb(68, 72, 71); this.btnNavMessages.FlatAppearance.BorderSize=0; this.btnNavMessages.FlatStyle=System.Windows.Forms.FlatStyle.Flat; this.btnNavMessages.Font=new System.Drawing.Font("Montserrat Medium",10F,System.Drawing.FontStyle.Bold); this.btnNavMessages.ForeColor=System.Drawing.Color.White; this.btnNavMessages.Location=new System.Drawing.Point(21,381); this.btnNavMessages.Name="btnNavMessages"; this.btnNavMessages.Size=new System.Drawing.Size(251,49); this.btnNavMessages.TabIndex=6; this.btnNavMessages.Text="Messages"; this.btnNavMessages.TextAlign=System.Drawing.ContentAlignment.MiddleLeft; this.btnNavMessages.UseVisualStyleBackColor=false; this.btnNavMessages.Click+=new System.EventHandler(this.btnNavMessages_Click);
             this.btnNavEvents.BackColor=System.Drawing.Color.FromArgb(68, 72, 71); this.btnNavEvents.FlatAppearance.BorderSize=0; this.btnNavEvents.FlatStyle=System.Windows.Forms.FlatStyle.Flat; this.btnNavEvents.Font=new System.Drawing.Font("Montserrat Medium",10F,System.Drawing.FontStyle.Bold); this.btnNavEvents.ForeColor=System.Drawing.Color.White; this.btnNavEvents.Location=new System.Drawing.Point(21,440); this.btnNavEvents.Name="btnNavEvents"; this.btnNavEvents.Size=new System.Drawing.Size(251,49); this.btnNavEvents.TabIndex=7; this.btnNavEvents.Text="Events"; this.btnNavEvents.TextAlign=System.Drawing.ContentAlignment.MiddleLeft; this.btnNavEvents.UseVisualStyleBackColor=false; this.btnNavEvents.Click+=new System.EventHandler(this.btnNavEvents_Click);
-            this.btnLogout.BackColor=System.Drawing.Color.Red; this.btnLogout.FlatAppearance.BorderSize=0; this.btnLogout.FlatStyle=System.Windows.Forms.FlatStyle.Flat; this.btnLogout.Font=new System.Drawing.Font("Montserrat Medium",10F,System.Drawing.FontStyle.Bold); this.btnLogout.ForeColor=System.Drawing.Color.White; this.btnLogout.Location=new System.Drawing.Point(21,738); this.btnLogout.Name="btnLogout"; this.btnLogout.Size=new System.Drawing.Size(147,47); this.btnLogout.TabIndex=9; this.btnLogout.Text="Logout"; this.btnLogout.UseVisualStyleBackColor=false; this.btnLogout.Click+=new System.EventHandler(this.btnLogout_Click);
+            this.btnLogout.BackColor=System.Drawing.Color.Red; this.btnLogout.FlatAppearance.BorderSize=0; this.btnLogout.FlatStyle=System.Windows.Forms.FlatStyle.Flat; this.btnLogout.Font=new System.Drawing.Font("Montserrat Medium",10F,System.Drawing.FontStyle.Bold); this.btnLogout.ForeColor=System.Drawing.Color.White; this.btnLogout.Anchor = ((System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left));
+            this.btnLogout.Location=new System.Drawing.Point(21,738); this.btnLogout.Name="btnLogout"; this.btnLogout.Size=new System.Drawing.Size(147,47); this.btnLogout.TabIndex=9; this.btnLogout.Text="Logout"; this.btnLogout.UseVisualStyleBackColor=false; this.btnLogout.Click+=new System.EventHandler(this.btnLogout_Click);
+            this.lblPageTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left));
             this.lblPageTitle.AutoSize=true; this.lblPageTitle.Font=new System.Drawing.Font("Montserrat",20F,System.Drawing.FontStyle.Bold); this.lblPageTitle.ForeColor=System.Drawing.Color.White; this.lblPageTitle.Location=new System.Drawing.Point(313,26); this.lblPageTitle.Name="lblPageTitle"; this.lblPageTitle.TabIndex=10; this.lblPageTitle.Text="Search";
+            this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSearch.BackColor=System.Drawing.Color.FromArgb(44, 49, 49); this.txtSearch.BorderStyle=System.Windows.Forms.BorderStyle.FixedSingle; this.txtSearch.Font=new System.Drawing.Font("Montserrat",11F); this.txtSearch.ForeColor=System.Drawing.Color.White; this.txtSearch.Location=new System.Drawing.Point(313,80); this.txtSearch.Name="txtSearch"; this.txtSearch.Size=new System.Drawing.Size(960,34); this.txtSearch.TabIndex=11;
+            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right));
             this.btnSearch.BackColor=System.Drawing.Color.FromArgb(52, 193, 164); this.btnSearch.FlatAppearance.BorderSize=0; this.btnSearch.FlatStyle=System.Windows.Forms.FlatStyle.Flat; this.btnSearch.Font=new System.Drawing.Font("Montserrat Medium",10F,System.Drawing.FontStyle.Bold); this.btnSearch.ForeColor=System.Drawing.Color.White; this.btnSearch.Location=new System.Drawing.Point(1283,80); this.btnSearch.Name="btnSearch"; this.btnSearch.Size=new System.Drawing.Size(140,34); this.btnSearch.TabIndex=12; this.btnSearch.Text="Search"; this.btnSearch.UseVisualStyleBackColor=false; this.btnSearch.Click+=new System.EventHandler(this.btnSearch_Click);
+            this.flowResults.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.flowResults.AutoScroll=true; this.flowResults.BackColor=System.Drawing.Color.FromArgb(44, 49, 49); this.flowResults.FlowDirection=System.Windows.Forms.FlowDirection.TopDown; this.flowResults.WrapContents=false; this.flowResults.Location=new System.Drawing.Point(313,130); this.flowResults.Name="flowResults"; this.flowResults.Size=new System.Drawing.Size(1247,650); this.flowResults.TabIndex=13;
-            this.btnThemeToggle.BackColor = System.Drawing.Color.FromArgb(68, 72, 71);
-            this.btnThemeToggle.FlatAppearance.BorderSize = 0;
-            this.btnThemeToggle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThemeToggle.Font = new System.Drawing.Font("Montserrat Medium", 9F, System.Drawing.FontStyle.Bold);
-            this.btnThemeToggle.ForeColor = System.Drawing.Color.White;
-            this.btnThemeToggle.Name = "btnThemeToggle";
-            this.btnThemeToggle.Size = new System.Drawing.Size(110, 34);
-            this.btnThemeToggle.TabIndex = 99;
-            this.btnThemeToggle.Text = "\u2600 Light";
-            this.btnThemeToggle.UseVisualStyleBackColor = false;
-            this.btnThemeToggle.Click += new System.EventHandler(this.btnThemeToggle_Click);
+
+
+
+
+
+
+
+
+
+
             this.AutoScaleDimensions=new System.Drawing.SizeF(8F,16F); this.AutoScaleMode=System.Windows.Forms.AutoScaleMode.Font; this.BackColor=System.Drawing.Color.FromArgb(44, 49, 49); this.ClientSize=new System.Drawing.Size(1573,807); this.Controls.Add(this.panelNav); this.Controls.Add(this.lblPageTitle);
-            this.Controls.Add(this.btnThemeToggle);
             this.Controls.Add(this.txtSearch); this.Controls.Add(this.btnSearch); this.Controls.Add(this.flowResults);
-            this.FormBorderStyle=System.Windows.Forms.FormBorderStyle.FixedSingle; this.MaximizeBox=false; this.Name="Search_Person"; this.StartPosition=System.Windows.Forms.FormStartPosition.CenterScreen; this.Text="Search";
+            this.FormBorderStyle=System.Windows.Forms.FormBorderStyle.Sizable;  this.Name="Search_Person"; this.StartPosition=System.Windows.Forms.FormStartPosition.CenterScreen; this.Text="Search";
             
-            this.panelNav.ResumeLayout(false); this.ResumeLayout(false); this.PerformLayout();
+            this.panelNav.ResumeLayout(false); this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.ResumeLayout(false); this.PerformLayout();
         }
         #endregion
         private System.Windows.Forms.Panel panelNav;
@@ -77,6 +80,5 @@ namespace CampusConnect.Forms
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.FlowLayoutPanel flowResults;
-        private System.Windows.Forms.Button btnThemeToggle;
     }
 }

@@ -148,17 +148,18 @@ namespace CampusConnect.Forms
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e) { }
         private void panelCard_Paint(object sender, PaintEventArgs e) { }
         private void SignUp_Load(object sender, EventArgs e) { }
-        private void ApplyTheme()
+        private void ApplyTheme() { ThemeManager.Apply(this); }
+        protected override void OnResize(EventArgs e)
         {
-            ThemeManager.Apply(this);
-            if (btnThemeToggle != null)
-                btnThemeToggle.Text = ThemeManager.ToggleButtonLabel;
-        }
-
-        private void btnThemeToggle_Click(object sender, EventArgs e)
-        {
-            ThemeManager.Toggle();
-            ApplyTheme();
+            base.OnResize(e);
+            if (panelCard != null && IsHandleCreated)
+            {
+                int navWidth = panelSidebar.Width;
+                int contentWidth = this.ClientSize.Width - navWidth;
+                panelCard.Left = navWidth + (contentWidth - panelCard.Width) / 2;
+                int top = (this.ClientSize.Height - panelCard.Height) / 2;
+                panelCard.Top = top > 20 ? top : 20;
+            }
         }
 
     }

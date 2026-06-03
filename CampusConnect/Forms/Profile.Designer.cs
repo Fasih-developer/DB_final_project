@@ -57,8 +57,8 @@ namespace CampusConnect.Forms
             this.btnSaveBio = new System.Windows.Forms.Button();
             this.btnAddBio = new System.Windows.Forms.Button();
             this.btnEditBio = new System.Windows.Forms.Button();
-            this.btnThemeToggle = new System.Windows.Forms.Button();
             this.panelNav.SuspendLayout();
+            this.btnDeactivateAccount = new System.Windows.Forms.Button();
             this.panelSkills.SuspendLayout();
             this.panelCertificates.SuspendLayout();
             this.panelEducation.SuspendLayout();
@@ -80,6 +80,7 @@ namespace CampusConnect.Forms
             this.panelNav.Controls.Add(this.btnNavEvents);
             this.panelNav.Controls.Add(this.btnLogout);
             this.panelNav.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelNav.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.panelNav.Location = new System.Drawing.Point(0, 0);
             this.panelNav.Margin = new System.Windows.Forms.Padding(4);
             this.panelNav.Name = "panelNav";
@@ -223,6 +224,7 @@ namespace CampusConnect.Forms
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.Font = new System.Drawing.Font("Montserrat Medium", 10F, System.Drawing.FontStyle.Bold);
             this.btnLogout.ForeColor = System.Drawing.Color.White;
+            this.btnLogout.Anchor = ((System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left));
             this.btnLogout.Location = new System.Drawing.Point(21, 738);
             this.btnLogout.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogout.Name = "btnLogout";
@@ -234,6 +236,7 @@ namespace CampusConnect.Forms
             // 
             // lblPageTitle
             // 
+            this.lblPageTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left));
             this.lblPageTitle.AutoSize = true;
             this.lblPageTitle.Font = new System.Drawing.Font("Montserrat", 22F, System.Drawing.FontStyle.Bold);
             this.lblPageTitle.ForeColor = System.Drawing.Color.White;
@@ -261,6 +264,7 @@ namespace CampusConnect.Forms
             this.panelSkills.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(72)))), ((int)(((byte)(71)))));
             this.panelSkills.Controls.Add(this.lblSkillsTitle);
             this.panelSkills.Controls.Add(this.btnCheckSkills);
+            this.panelSkills.Anchor = ((System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left));
             this.panelSkills.Location = new System.Drawing.Point(330, 402);
             this.panelSkills.Margin = new System.Windows.Forms.Padding(4);
             this.panelSkills.Name = "panelSkills";
@@ -300,6 +304,7 @@ namespace CampusConnect.Forms
             this.panelCertificates.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(72)))), ((int)(((byte)(71)))));
             this.panelCertificates.Controls.Add(this.lblCertTitle);
             this.panelCertificates.Controls.Add(this.btnCheckCertificates);
+            this.panelCertificates.Anchor = ((System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left));
             this.panelCertificates.Location = new System.Drawing.Point(650, 402);
             this.panelCertificates.Margin = new System.Windows.Forms.Padding(4);
             this.panelCertificates.Name = "panelCertificates";
@@ -339,6 +344,7 @@ namespace CampusConnect.Forms
             this.panelEducation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(72)))), ((int)(((byte)(71)))));
             this.panelEducation.Controls.Add(this.lblEduTitle);
             this.panelEducation.Controls.Add(this.btnCheckEducation);
+            this.panelEducation.Anchor = ((System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left));
             this.panelEducation.Location = new System.Drawing.Point(970, 402);
             this.panelEducation.Margin = new System.Windows.Forms.Padding(4);
             this.panelEducation.Name = "panelEducation";
@@ -378,6 +384,7 @@ namespace CampusConnect.Forms
             this.panelInternships.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(72)))), ((int)(((byte)(71)))));
             this.panelInternships.Controls.Add(this.lblIntTitle);
             this.panelInternships.Controls.Add(this.btnCheckInternships);
+            this.panelInternships.Anchor = ((System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left));
             this.panelInternships.Location = new System.Drawing.Point(1290, 402);
             this.panelInternships.Margin = new System.Windows.Forms.Padding(4);
             this.panelInternships.Name = "panelInternships";
@@ -419,6 +426,7 @@ namespace CampusConnect.Forms
             this.btnMyPosts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMyPosts.Font = new System.Drawing.Font("Montserrat Medium", 11F, System.Drawing.FontStyle.Bold);
             this.btnMyPosts.ForeColor = System.Drawing.Color.White;
+            this.btnMyPosts.Anchor = ((System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left));
             this.btnMyPosts.Location = new System.Drawing.Point(320, 726);
             this.btnMyPosts.Margin = new System.Windows.Forms.Padding(4);
             this.btnMyPosts.Name = "btnMyPosts";
@@ -444,7 +452,8 @@ namespace CampusConnect.Forms
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(330, 145);
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Location = new System.Drawing.Point(313, 145);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(933, 226);
@@ -615,6 +624,7 @@ namespace CampusConnect.Forms
             this.panel2.Controls.Add(this.btnEditBio);
             this.panel2.Controls.Add(this.txtBio);
             this.panel2.Controls.Add(this.label8);
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.Location = new System.Drawing.Point(1290, 145);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
@@ -687,19 +697,22 @@ namespace CampusConnect.Forms
             this.btnEditBio.Visible = false;
             this.btnEditBio.UseVisualStyleBackColor = false;
             this.btnEditBio.Click += new System.EventHandler(this.btnEditBio_Click);
-            // btnThemeToggle
-            this.btnThemeToggle.BackColor = System.Drawing.Color.FromArgb(68, 72, 71);
-            this.btnThemeToggle.FlatAppearance.BorderSize = 0;
-            this.btnThemeToggle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThemeToggle.Font = new System.Drawing.Font("Montserrat Medium", 9F, System.Drawing.FontStyle.Bold);
-            this.btnThemeToggle.ForeColor = System.Drawing.Color.White;
-            this.btnThemeToggle.Location = new System.Drawing.Point(1440, 14);
-            this.btnThemeToggle.Name = "btnThemeToggle";
-            this.btnThemeToggle.Size = new System.Drawing.Size(110, 34);
-            this.btnThemeToggle.TabIndex = 98;
-            this.btnThemeToggle.Text = "\u2600 Light";
-            this.btnThemeToggle.UseVisualStyleBackColor = false;
-            this.btnThemeToggle.Click += new System.EventHandler(this.btnThemeToggle_Click);
+            // 
+            // btnDeactivateAccount
+            // 
+            this.btnDeactivateAccount.BackColor = System.Drawing.Color.FromArgb(180, 50, 50);
+            this.btnDeactivateAccount.FlatAppearance.BorderSize = 0;
+            this.btnDeactivateAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeactivateAccount.Font = new System.Drawing.Font("Montserrat Medium", 9F, System.Drawing.FontStyle.Bold);
+            this.btnDeactivateAccount.ForeColor = System.Drawing.Color.White;
+            this.btnDeactivateAccount.Location = new System.Drawing.Point(520, 726);
+            this.btnDeactivateAccount.Name = "btnDeactivateAccount";
+            this.btnDeactivateAccount.Size = new System.Drawing.Size(220, 52);
+            this.btnDeactivateAccount.TabIndex = 30;
+            this.btnDeactivateAccount.Text = "Deactivate Account";
+            this.btnDeactivateAccount.Anchor = ((System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left));
+            this.btnDeactivateAccount.UseVisualStyleBackColor = false;
+            this.btnDeactivateAccount.Click += new System.EventHandler(this.btnDeactivateAccount_Click);
             // 
             // Profile
             // 
@@ -708,7 +721,6 @@ namespace CampusConnect.Forms
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(1573, 807);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.btnThemeToggle);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelNav);
             this.Controls.Add(this.lblPageTitle);
@@ -718,10 +730,10 @@ namespace CampusConnect.Forms
             this.Controls.Add(this.panelEducation);
             this.Controls.Add(this.panelInternships);
             this.Controls.Add(this.btnMyPosts);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Controls.Add(this.btnDeactivateAccount);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.MaximizeBox = false;
-            this.Name = "Profile";
+                        this.Name = "Profile";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Profile";
             this.Load += new System.EventHandler(this.Profile_Load);
@@ -738,6 +750,7 @@ namespace CampusConnect.Forms
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -789,6 +802,6 @@ namespace CampusConnect.Forms
         private System.Windows.Forms.Button btnSaveBio;
         private System.Windows.Forms.Button btnAddBio;
         private System.Windows.Forms.Button btnEditBio;
-        private System.Windows.Forms.Button btnThemeToggle;
+        private System.Windows.Forms.Button btnDeactivateAccount;
     }
 }

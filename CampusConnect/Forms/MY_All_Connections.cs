@@ -109,17 +109,12 @@ namespace CampusConnect.Forms
         }
 
         private void btnExit_Click(object sender, EventArgs e) { new Connections().Show(); this.Hide(); }
-        private void ApplyTheme()
+        private void ApplyTheme() { ThemeManager.Apply(this); }
+        protected override void OnResize(EventArgs e)
         {
-            ThemeManager.Apply(this);
-            if (btnThemeToggle != null)
-                btnThemeToggle.Text = ThemeManager.ToggleButtonLabel;
-        }
-
-        private void btnThemeToggle_Click(object sender, EventArgs e)
-        {
-            ThemeManager.Toggle();
-            ApplyTheme();
+            base.OnResize(e);
+            if (flowConns != null && IsHandleCreated)
+                LoadConnections();
         }
 
     }
