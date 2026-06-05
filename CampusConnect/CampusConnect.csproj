@@ -223,6 +223,17 @@
     <Compile Include="Forms\Messages.Designer.cs">
       <DependentUpon>Messages.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\NewChatDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NewChatDialog.Designer.cs">
+      <DependentUpon>NewChatDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\MessageModel.cs" />
+    <Compile Include="Classes\ConversationModel.cs" />
+    <Compile Include="Classes\UserModel.cs" />
+    <Compile Include="Classes\MessageRepository.cs" />
+    <Compile Include="Classes\MessageService.cs" />
     <Compile Include="Forms\Events.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -302,6 +313,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NewChatDialog.resx">
+      <DependentUpon>NewChatDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Profile.resx">
       <DependentUpon>Profile.cs</DependentUpon>

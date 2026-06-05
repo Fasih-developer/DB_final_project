@@ -7,72 +7,108 @@ namespace CampusConnect.Forms
 {
     public partial class Events : Form
     {
-        public Events() {
-            ApplyTheme(); InitializeComponent(); }
-        private void Events_Load(object sender, EventArgs e) { LoadEvents(); }
+        private int _myProfileID = -1;
+
+        public Events()
+        {
+            ApplyTheme();
+            InitializeComponent();
+        }
+
+        private void Events_Load(object sender, EventArgs e)
+        {
+            _myProfileID = GetMyProfileID();
+            LoadEvents();
+        }
+
+        private int GetMyProfileID()
+        {
+            try
+            {
+                using (MySqlConnection con = DBConnection.GetConnection())
+                {
+                    con.Open();
+                    MySqlCommand cmd = new MySqlCommand(
+                        "SELECT ProfileID FROM user_profiles WHERE AccountID = @aid", con);
+                    cmd.Parameters.AddWithValue("@aid", Session.AccountID);
+                    object result = cmd.ExecuteScalar();
+                    return result != null ? Convert.ToInt32(result) : -1;
+                }
+            }
+            catch { return -1; }
+        }
 
         private void LoadEvents()
         {
             try
             {
                 flowEvents.Controls.Clear();
-                MySqlConnection con = DBConnection.GetConnection();
-                con.Open();
 
-                // Load all events with their university name
-                string evtQuery = @"SELECT e.EventID, e.EventTitle, e.Description, e.EventDate,
-                                           u.CampusName
-                                    FROM events e
-                                    INNER JOIN universities u ON e.UniversityID = u.UniversityID
-                                    ORDER BY e.EventDate DESC";
-                MySqlCommand evtCmd = new MySqlCommand(evtQuery, con);
-                MySqlDataReader evtReader = evtCmd.ExecuteReader();
-
-                var events = new System.Collections.Generic.List<(int id, string title, string desc, DateTime date, string uni)>();
-                while (evtReader.Read())
-                    events.Add((
-                        Convert.ToInt32(evtReader["EventID"]),
-                        evtReader["EventTitle"].ToString(),
-                        evtReader["Description"].ToString(),
-                        Convert.ToDateTime(evtReader["EventDate"]),
-                        evtReader["CampusName"].ToString()
-                    ));
-                evtReader.Close();
-
-                foreach (var ev in events)
+                using (MySqlConnection con = DBConnection.GetConnection())
                 {
-                    // Load attendees for this event (UPDATED: Removed AttendeeRole)
-                    string attQuery = @"SELECT up.FirstName, up.LastName
-                                        FROM event_attendees ea
-                                        INNER JOIN user_profiles up ON ea.ProfileID = up.ProfileID
-                                        WHERE ea.EventID = @eventID";
-                    MySqlCommand attCmd = new MySqlCommand(attQuery, con);
-                    attCmd.Parameters.AddWithValue("@eventID", ev.id);
-                    MySqlDataReader attReader = attCmd.ExecuteReader();
+                    con.Open();
 
-                    var attendees = new System.Collections.Generic.List<string>();
+                    string evtQuery = @"SELECT e.EventID, e.EventTitle, e.Description, e.EventDate,
+                                               u.CampusName
+                                        FROM events e
+                                        INNER JOIN universities u ON e.UniversityID = u.UniversityID
+                                        ORDER BY e.EventDate DESC";
 
-                    // UPDATED: Simply concatenate First Name and Last Name
-                    while (attReader.Read())
+                    MySqlCommand evtCmd = new MySqlCommand(evtQuery, con);
+                    MySqlDataReader evtReader = evtCmd.ExecuteReader();
+
+                    var events = new System.Collections.Generic.List<(int id, string title, string desc, DateTime date, string uni)>();
+                    while (evtReader.Read())
+                        events.Add((
+                            Convert.ToInt32(evtReader["EventID"]),
+                            evtReader["EventTitle"].ToString(),
+                            evtReader["Description"].ToString(),
+                            Convert.ToDateTime(evtReader["EventDate"]),
+                            evtReader["CampusName"].ToString()
+                        ));
+                    evtReader.Close();
+
+                    foreach (var ev in events)
                     {
-                        attendees.Add(attReader["FirstName"].ToString() + " " + attReader["LastName"].ToString());
+                        // Load attendees for this event
+                        string attQuery = @"SELECT up.FirstName, up.LastName
+                                            FROM event_attendees ea
+                                            INNER JOIN user_profiles up ON ea.ProfileID = up.ProfileID
+                                            WHERE ea.EventID = @eventID";
+                        MySqlCommand attCmd = new MySqlCommand(attQuery, con);
+                        attCmd.Parameters.AddWithValue("@eventID", ev.id);
+                        MySqlDataReader attReader = attCmd.ExecuteReader();
+
+                        var attendees = new System.Collections.Generic.List<string>();
+                        while (attReader.Read())
+                            attendees.Add(attReader["FirstName"] + " " + attReader["LastName"]);
+                        attReader.Close();
+
+                        // Check if current user has already attended
+                        bool alreadyAttended = false;
+                        if (_myProfileID > 0)
+                        {
+                            string checkQuery = "SELECT COUNT(*) FROM event_attendees WHERE EventID = @eid AND ProfileID = @pid";
+                            MySqlCommand checkCmd = new MySqlCommand(checkQuery, con);
+                            checkCmd.Parameters.AddWithValue("@eid", ev.id);
+                            checkCmd.Parameters.AddWithValue("@pid", _myProfileID);
+                            alreadyAttended = Convert.ToInt32(checkCmd.ExecuteScalar()) > 0;
+                        }
+
+                        Panel card = BuildEventCard(ev.id, ev.title, ev.desc, ev.date, ev.uni, attendees, alreadyAttended);
+                        flowEvents.Controls.Add(card);
                     }
-                    attReader.Close();
 
-                    Panel card = BuildEventCard(ev.title, ev.desc, ev.date, ev.uni, attendees);
-                    flowEvents.Controls.Add(card);
-                }
-                con.Close();
-
-                if (events.Count == 0)
-                {
-                    Label lbl = new Label();
-                    lbl.Text = "No events available at the moment.";
-                    lbl.Font = new Font("Montserrat", 11F);
-                    lbl.ForeColor = Color.FromArgb(120, 120, 120);
-                    lbl.AutoSize = true;
-                    lbl.Margin = new Padding(20);
-                    flowEvents.Controls.Add(lbl);
+                    if (events.Count == 0)
+                    {
+                        Label lbl = new Label();
+                        lbl.Text = "No events available at the moment.";
+                        lbl.Font = new Font("Montserrat", 11F);
+                        lbl.ForeColor = Color.FromArgb(120, 120, 120);
+                        lbl.AutoSize = true;
+                        lbl.Margin = new Padding(20);
+                        flowEvents.Controls.Add(lbl);
+                    }
                 }
             }
             catch (Exception ex)
@@ -80,20 +116,51 @@ namespace CampusConnect.Forms
                 MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private Panel BuildEventCard(string title, string desc, DateTime date, string uni, System.Collections.Generic.List<string> attendees)
+
+        private Panel BuildEventCard(int eventID, string title, string desc, DateTime date, string uni,
+                                     System.Collections.Generic.List<string> attendees, bool alreadyAttended)
         {
             Panel card = new Panel();
             card.BackColor = Color.FromArgb(68, 72, 71);
             card.Width = flowEvents.Width - 24;
             card.Margin = new Padding(0, 0, 0, 16);
 
-            // Title
+            // "Mark as Attended" button — top-right corner
+            Button btnAttend = new Button();
+            btnAttend.Font = new Font("Montserrat Medium", 9F, FontStyle.Bold);
+            btnAttend.FlatStyle = FlatStyle.Flat;
+            btnAttend.FlatAppearance.BorderSize = 0;
+            btnAttend.Size = new Size(148, 32);
+            btnAttend.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnAttend.Cursor = Cursors.Hand;
+
+            if (alreadyAttended)
+            {
+                btnAttend.Text = "Attended ✓";
+                btnAttend.BackColor = Color.FromArgb(80, 80, 80);
+                btnAttend.ForeColor = Color.FromArgb(160, 160, 160);
+                btnAttend.Enabled = false;
+            }
+            else
+            {
+                btnAttend.Text = "Mark as Attended";
+                btnAttend.BackColor = Color.FromArgb(52, 193, 164);
+                btnAttend.ForeColor = Color.White;
+
+                int capturedEventID = eventID;
+                btnAttend.Click += (s, e) => MarkAsAttended(capturedEventID, btnAttend);
+            }
+
+            card.Controls.Add(btnAttend);
+
+            // Title — leaves room for button on the right
             Label lblTitle = new Label();
             lblTitle.Text = title;
             lblTitle.Font = new Font("Montserrat", 14F, FontStyle.Bold);
             lblTitle.ForeColor = Color.White;
             lblTitle.Location = new Point(18, 16);
             lblTitle.AutoSize = true;
+            lblTitle.MaximumSize = new Size(card.Width - 190, 0);
             card.Controls.Add(lblTitle);
 
             // University + date row
@@ -105,9 +172,12 @@ namespace CampusConnect.Forms
             lblMeta.Location = new Point(18, lblTitle.Bottom + 6);
             card.Controls.Add(lblMeta);
 
+            // Position the attend button vertically centered with title row
+            btnAttend.Location = new Point(card.Width - btnAttend.Width - 18, 16 + (lblTitle.Height / 2) - (btnAttend.Height / 2));
+
             // Description
             int nextY = lblMeta.Bottom + 10;
-            if (desc != null && desc.Trim() != "")
+            if (!string.IsNullOrWhiteSpace(desc))
             {
                 Label lblDesc = new Label();
                 lblDesc.Text = desc;
@@ -120,7 +190,7 @@ namespace CampusConnect.Forms
                 nextY = lblDesc.Bottom + 12;
             }
 
-            // Attendees section
+            // Attendees heading
             Label lblAttHead = new Label();
             lblAttHead.Text = "Attendees:";
             lblAttHead.Font = new Font("Montserrat Medium", 9F, FontStyle.Bold);
@@ -160,15 +230,74 @@ namespace CampusConnect.Forms
             return card;
         }
 
-        private void btnNavProfile_Click(object sender, System.EventArgs e) { new Profile().Show(); this.Hide(); }
-        private void btnNavSearch_Click(object sender, System.EventArgs e) { new Search_Person().Show(); this.Hide(); }
-        private void btnNavConnections_Click(object sender, System.EventArgs e) { new Connections().Show(); this.Hide(); }
-        private void btnNavUniversities_Click(object sender, System.EventArgs e) { new University().Show(); this.Hide(); }
-        private void btnNavPosts_Click(object sender, System.EventArgs e) { new Posts().Show(); this.Hide(); }
-        private void btnNavMessages_Click(object sender, System.EventArgs e) { new Messages().Show(); this.Hide(); }
-        private void btnNavEvents_Click(object sender, System.EventArgs e) { }
-        private void btnLogout_Click(object sender, System.EventArgs e) { new Form1().Show(); this.Hide(); }
+        private void MarkAsAttended(int eventID, Button btn)
+        {
+            if (_myProfileID < 0)
+            {
+                MessageBox.Show("Could not identify your profile. Please log in again.",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            try
+            {
+                using (MySqlConnection con = DBConnection.GetConnection())
+                {
+                    con.Open();
+
+                    // Guard against duplicates (race condition or direct click spam)
+                    string checkSql = "SELECT COUNT(*) FROM event_attendees WHERE EventID = @eid AND ProfileID = @pid";
+                    MySqlCommand checkCmd = new MySqlCommand(checkSql, con);
+                    checkCmd.Parameters.AddWithValue("@eid", eventID);
+                    checkCmd.Parameters.AddWithValue("@pid", _myProfileID);
+                    int existing = Convert.ToInt32(checkCmd.ExecuteScalar());
+
+                    if (existing > 0)
+                    {
+                        // Already exists — just update the button state silently
+                        SetButtonAttended(btn);
+                        return;
+                    }
+
+                    string insertSql = "INSERT INTO event_attendees (EventID, ProfileID) VALUES (@eid, @pid)";
+                    MySqlCommand insertCmd = new MySqlCommand(insertSql, con);
+                    insertCmd.Parameters.AddWithValue("@eid", eventID);
+                    insertCmd.Parameters.AddWithValue("@pid", _myProfileID);
+                    insertCmd.ExecuteNonQuery();
+                }
+
+                SetButtonAttended(btn);
+
+                // Reload so the attendee name appears in the list immediately
+                LoadEvents();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error marking attendance: " + ex.Message, "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void SetButtonAttended(Button btn)
+        {
+            btn.Text = "Attended ✓";
+            btn.BackColor = Color.FromArgb(80, 80, 80);
+            btn.ForeColor = Color.FromArgb(160, 160, 160);
+            btn.Enabled = false;
+        }
+
+        // ── Nav ──────────────────────────────────────────────────────
+        private void btnNavProfile_Click(object sender, EventArgs e)      { new Profile().Show(); this.Hide(); }
+        private void btnNavSearch_Click(object sender, EventArgs e)       { new Search_Person().Show(); this.Hide(); }
+        private void btnNavConnections_Click(object sender, EventArgs e)  { new Connections().Show(); this.Hide(); }
+        private void btnNavUniversities_Click(object sender, EventArgs e) { new University().Show(); this.Hide(); }
+        private void btnNavPosts_Click(object sender, EventArgs e)        { new Posts().Show(); this.Hide(); }
+        private void btnNavMessages_Click(object sender, EventArgs e)     { new Messages().Show(); this.Hide(); }
+        private void btnNavEvents_Click(object sender, EventArgs e)       { }
+        private void btnLogout_Click(object sender, EventArgs e)          { new Form1().Show(); this.Hide(); }
+
         private void ApplyTheme() { ThemeManager.Apply(this); }
+
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
@@ -176,9 +305,6 @@ namespace CampusConnect.Forms
                 LoadEvents();
         }
 
-        private void flowEvents_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        private void flowEvents_Paint(object sender, PaintEventArgs e) { }
     }
 }
