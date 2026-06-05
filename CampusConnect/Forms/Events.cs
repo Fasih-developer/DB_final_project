@@ -41,8 +41,8 @@ namespace CampusConnect.Forms
 
                 foreach (var ev in events)
                 {
-                    // Load attendees for this event
-                    string attQuery = @"SELECT up.FirstName, up.LastName, ea.AttendeeRole
+                    // Load attendees for this event (UPDATED: Removed AttendeeRole)
+                    string attQuery = @"SELECT up.FirstName, up.LastName
                                         FROM event_attendees ea
                                         INNER JOIN user_profiles up ON ea.ProfileID = up.ProfileID
                                         WHERE ea.EventID = @eventID";
@@ -51,9 +51,12 @@ namespace CampusConnect.Forms
                     MySqlDataReader attReader = attCmd.ExecuteReader();
 
                     var attendees = new System.Collections.Generic.List<string>();
+
+                    // UPDATED: Simply concatenate First Name and Last Name
                     while (attReader.Read())
-                        attendees.Add(attReader["FirstName"] + " " + attReader["LastName"] +
-                                      (attReader["AttendeeRole"].ToString() != "" ? " (" + attReader["AttendeeRole"] + ")" : ""));
+                    {
+                        attendees.Add(attReader["FirstName"].ToString() + " " + attReader["LastName"].ToString());
+                    }
                     attReader.Close();
 
                     Panel card = BuildEventCard(ev.title, ev.desc, ev.date, ev.uni, attendees);
@@ -72,9 +75,11 @@ namespace CampusConnect.Forms
                     flowEvents.Controls.Add(lbl);
                 }
             }
-            catch (Exception ex) { MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-
         private Panel BuildEventCard(string title, string desc, DateTime date, string uni, System.Collections.Generic.List<string> attendees)
         {
             Panel card = new Panel();
@@ -171,5 +176,9 @@ namespace CampusConnect.Forms
                 LoadEvents();
         }
 
+        private void flowEvents_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

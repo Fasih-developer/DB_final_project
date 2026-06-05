@@ -37,5 +37,12 @@ namespace CampusConnect.Forms
 
         }
         private void ApplyTheme() { ThemeManager.Apply(this); }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Add_event eventform = new Add_event();
+            eventform.Show();
+            this.Hide();
+        }
     }
 }
