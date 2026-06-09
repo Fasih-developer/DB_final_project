@@ -5,29 +5,21 @@ using System.Windows.Forms;
 
 namespace CampusConnect.Forms
 {
-    /// <summary>
-    /// Main messaging form.
-    /// All DB work is delegated to MessageService → MessageRepository.
-    /// </summary>
+  
     public partial class Messages : Form
     {
         // ── Dependencies ─────────────────────────────────────────────
         private readonly MessageService _service = new MessageService();
 
-        // ── State ────────────────────────────────────────────────────
         private int    _myProfileID  = -1;
         private int    _activePID    = -1;
         private string _activeName   = "";
 
-        // ── Constructor ──────────────────────────────────────────────
         public Messages()
         {
             InitializeComponent();
         }
 
-        // ════════════════════════════════════════════════════════════
-        // FORM LOAD
-        // ════════════════════════════════════════════════════════════
 
         private void Messages_Load(object sender, EventArgs e)
         {
@@ -46,9 +38,6 @@ namespace CampusConnect.Forms
             LoadConversationList();
         }
 
-        // ════════════════════════════════════════════════════════════
-        // NAV HIGHLIGHT
-        // ════════════════════════════════════════════════════════════
 
         private void HighlightNavButton(Button active)
         {
@@ -61,9 +50,6 @@ namespace CampusConnect.Forms
             active.BackColor = ThemeManager.NavActive;
         }
 
-        // ════════════════════════════════════════════════════════════
-        // CONVERSATION LIST
-        // ════════════════════════════════════════════════════════════
 
         private void LoadConversationList()
         {
@@ -161,13 +147,6 @@ namespace CampusConnect.Forms
             return card;
         }
 
-        // ════════════════════════════════════════════════════════════
-        // SEARCH — filters existing conversations live while typing
-        // ════════════════════════════════════════════════════════════
-
-        // ════════════════════════════════════════════════════════════
-        // NEW CHAT BUTTON
-        // ════════════════════════════════════════════════════════════
 
         private void btnNewChat_Click(object sender, EventArgs e)
         {
@@ -179,10 +158,6 @@ namespace CampusConnect.Forms
                     OpenChat(dlg.SelectedProfileID, dlg.SelectedName);
             }
         }
-
-        // ════════════════════════════════════════════════════════════
-        // OPEN CHAT
-        // ════════════════════════════════════════════════════════════
 
         private void OpenChat(int otherPID, string otherName)
         {
@@ -209,10 +184,6 @@ namespace CampusConnect.Forms
             ScrollChatToBottom();
             LoadConversationList();
         }
-
-        // ════════════════════════════════════════════════════════════
-        // MESSAGE BUBBLES
-        // ════════════════════════════════════════════════════════════
 
         private Panel BuildBubble(MessageModel msg)
         {
@@ -323,9 +294,6 @@ namespace CampusConnect.Forms
                     flowChat.Controls[flowChat.Controls.Count - 1]);
         }
 
-        // ════════════════════════════════════════════════════════════
-        // SEND MESSAGE
-        // ════════════════════════════════════════════════════════════
 
         private void SendMessage()
         {
@@ -368,18 +336,12 @@ namespace CampusConnect.Forms
             }
         }
 
-        // ════════════════════════════════════════════════════════════
-        // HELPERS
-        // ════════════════════════════════════════════════════════════
 
         private void ShowError(string msg)
         {
             MessageBox.Show(msg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        // ════════════════════════════════════════════════════════════
-        // NAV HANDLERS
-        // ════════════════════════════════════════════════════════════
 
         private void btnNavProfile_Click(object sender, EventArgs e)      { new Profile().Show();       Hide(); }
         private void btnNavSearch_Click(object sender, EventArgs e)       { new Search_Person().Show(); Hide(); }

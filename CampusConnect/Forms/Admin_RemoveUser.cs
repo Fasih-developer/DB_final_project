@@ -156,7 +156,6 @@ namespace CampusConnect.Forms
                 MySqlConnection con = DBConnection.GetConnection();
                 con.Open();
 
-                // Get ProfileID first
                 string pidQ = "SELECT ProfileID FROM user_profiles WHERE AccountID = @aid";
                 MySqlCommand pidCmd = new MySqlCommand(pidQ, con);
                 pidCmd.Parameters.AddWithValue("@aid", accountID);
@@ -166,8 +165,9 @@ namespace CampusConnect.Forms
                 {
                     int profileID = Convert.ToInt32(pidObj);
 
-                    // Delete in dependency order
                     string[] cleanupQueries = {
+                        "DELETE FROM messages WHERE SenderID = @pid",
+                        "DELETE FROM messages WHERE ReceiverID = @pid",
                         "DELETE FROM profile_skills WHERE ProfileID = @pid",
                         "DELETE FROM certifications WHERE ProfileID = @pid",
                         "DELETE FROM educations WHERE ProfileID = @pid",
@@ -187,7 +187,7 @@ namespace CampusConnect.Forms
                     }
                 }
 
-                // Finally delete the account
+                // delete the account
                 string accQ = "DELETE FROM user_accounts WHERE AccountID = @aid";
                 MySqlCommand accCmd = new MySqlCommand(accQ, con);
                 accCmd.Parameters.AddWithValue("@aid", accountID);
@@ -211,6 +211,11 @@ namespace CampusConnect.Forms
         {
             new ADMIN_UI().Show();
             this.Hide();
+        }
+
+        private void flowResults_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

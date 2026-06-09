@@ -31,13 +31,11 @@ namespace CampusConnect.Forms
                 MySqlConnection con = DBConnection.GetConnection();
                 con.Open();
 
-                // Step 1: get MY profile ID
                 string myPQ = "SELECT ProfileID FROM user_profiles WHERE AccountID = @aid";
                 MySqlCommand myCmd = new MySqlCommand(myPQ, con);
                 myCmd.Parameters.AddWithValue("@aid", Session.AccountID);
                 int myProfileID = Convert.ToInt32(myCmd.ExecuteScalar());
 
-                // Step 2: search users — read ALL rows first then close reader
                 string query = @"SELECT up.ProfileID, up.FirstName, up.LastName,
                                         ua.Username, up.Gender,
                                         u.CampusName, d.DepartmentName
@@ -60,7 +58,6 @@ namespace CampusConnect.Forms
                 {
                     while (reader.Read())
                     {
-                        // Resolve gender ID → text
                         string genderRaw = reader["Gender"].ToString();
                         string genderText = genderRaw == "1" ? "Male" : genderRaw == "2" ? "Female" : genderRaw;
 
@@ -73,9 +70,8 @@ namespace CampusConnect.Forms
                             reader["DepartmentName"].ToString()
                         ));
                     }
-                }   // reader closed here — con still open
+                }   
 
-                // Step 3: for each result, check connection status (safe now, no open reader)
                 bool found = results.Count > 0;
                 foreach (var r in results)
                 {

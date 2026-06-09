@@ -21,7 +21,6 @@ namespace CampusConnect.Forms
         private void ApplyTheme() { ThemeManager.Apply(this); }
         private void Profile_Load(object sender, EventArgs e)
         {
-            // Make all info fields read-only
             txtName.ReadOnly = true;
             txtAge.ReadOnly = true;
             txtGender.ReadOnly = true;
@@ -60,7 +59,6 @@ namespace CampusConnect.Forms
                     txtName.Text      = reader["FirstName"] + " " + reader["LastName"];
                     txtAge.Text       = reader["Age"].ToString();
 
-                    // Resolve gender ID to readable text
                     string gRaw = reader["Gender"].ToString();
                     txtGender.Text    = gRaw == "1" ? "Male" : gRaw == "2" ? "Female" : gRaw;
 
@@ -78,7 +76,7 @@ namespace CampusConnect.Forms
                         txtBio.ReadOnly  = true;
                         txtBio.Visible   = true;
                         btnSaveBio.Text  = "Save";
-                        btnSaveBio.Visible = false;   // hide save, show edit
+                        btnSaveBio.Visible = false;   
                         btnAddBio.Visible  = false;
                         btnEditBio.Visible = true;
                         label8.Text = "Bio";

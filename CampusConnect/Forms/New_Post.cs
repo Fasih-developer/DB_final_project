@@ -26,7 +26,6 @@ namespace CampusConnect.Forms
                 MySqlConnection con = DBConnection.GetConnection();
                 con.Open();
 
-                // Get ProfileID from Session AccountID
                 string profileQuery = "SELECT ProfileID FROM user_profiles WHERE AccountID = @accountID";
                 MySqlCommand profileCmd = new MySqlCommand(profileQuery, con);
                 profileCmd.Parameters.AddWithValue("@accountID", Session.AccountID);

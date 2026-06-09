@@ -245,7 +245,6 @@ namespace CampusConnect.Forms
                 {
                     con.Open();
 
-                    // Guard against duplicates (race condition or direct click spam)
                     string checkSql = "SELECT COUNT(*) FROM event_attendees WHERE EventID = @eid AND ProfileID = @pid";
                     MySqlCommand checkCmd = new MySqlCommand(checkSql, con);
                     checkCmd.Parameters.AddWithValue("@eid", eventID);
@@ -254,7 +253,6 @@ namespace CampusConnect.Forms
 
                     if (existing > 0)
                     {
-                        // Already exists — just update the button state silently
                         SetButtonAttended(btn);
                         return;
                     }
@@ -268,7 +266,6 @@ namespace CampusConnect.Forms
 
                 SetButtonAttended(btn);
 
-                // Reload so the attendee name appears in the list immediately
                 LoadEvents();
             }
             catch (Exception ex)

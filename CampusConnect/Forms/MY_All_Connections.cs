@@ -25,7 +25,6 @@ namespace CampusConnect.Forms
                 myCmd.Parameters.AddWithValue("@accountID", Session.AccountID);
                 int myProfileID = Convert.ToInt32(myCmd.ExecuteScalar());
 
-                // StatusID 4 = Accepted — get the OTHER person in the connection
                 string query = @"SELECT up.FirstName, up.LastName, ua.Username,
                                         u.CampusName, d.DepartmentName,
                                         c.RequestedAt

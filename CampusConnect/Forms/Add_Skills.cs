@@ -27,7 +27,7 @@ namespace CampusConnect.Forms
                 MySqlConnection con = DBConnection.GetConnection();
                 con.Open();
 
-                // Check if skill already exists
+                // Check 
                 string checkQuery = "SELECT SkillID FROM skills WHERE SkillName = @skillName";
                 MySqlCommand checkCmd = new MySqlCommand(checkQuery, con);
                 checkCmd.Parameters.AddWithValue("@skillName", skillName);
@@ -37,12 +37,10 @@ namespace CampusConnect.Forms
 
                 if (result != null)
                 {
-                    // Skill already exists, use existing ID
                     skillID = Convert.ToInt64(result);
                 }
                 else
                 {
-                    // Insert new skill
                     string insertSkill = "INSERT INTO skills (SkillName) VALUES (@skillName)";
                     MySqlCommand insertCmd = new MySqlCommand(insertSkill, con);
                     insertCmd.Parameters.AddWithValue("@skillName", skillName);
@@ -50,13 +48,11 @@ namespace CampusConnect.Forms
                     skillID = insertCmd.LastInsertedId;
                 }
 
-                // Get ProfileID from AccountID
                 string profileQuery = "SELECT ProfileID FROM user_profiles WHERE AccountID = @accountID";
                 MySqlCommand profileCmd = new MySqlCommand(profileQuery, con);
                 profileCmd.Parameters.AddWithValue("@accountID", Session.AccountID);
                 long profileID = Convert.ToInt64(profileCmd.ExecuteScalar());
 
-                // Check if already added
                 string dupCheck = "SELECT COUNT(*) FROM profile_skills WHERE ProfileID = @profileID AND SkillID = @skillID";
                 MySqlCommand dupCmd = new MySqlCommand(dupCheck, con);
                 dupCmd.Parameters.AddWithValue("@profileID", profileID);
@@ -70,7 +66,6 @@ namespace CampusConnect.Forms
                     return;
                 }
 
-                // Insert into profile_skills
                 string linkQuery = "INSERT INTO profile_skills (ProfileID, SkillID) VALUES (@profileID, @skillID)";
                 MySqlCommand linkCmd = new MySqlCommand(linkQuery, con);
                 linkCmd.Parameters.AddWithValue("@profileID", profileID);

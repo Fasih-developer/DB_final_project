@@ -26,7 +26,6 @@ namespace CampusConnect.Forms
                 myCmd.Parameters.AddWithValue("@accountID", Session.AccountID);
                 int myProfileID = Convert.ToInt32(myCmd.ExecuteScalar());
 
-                // StatusID 3 = Pending (Active repurposed)
                 string query = @"SELECT c.ConnectionID,
                                         up.FirstName, up.LastName, ua.Username,
                                         u.CampusName, d.DepartmentName,

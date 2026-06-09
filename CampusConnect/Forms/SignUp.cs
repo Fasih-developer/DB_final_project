@@ -9,8 +9,8 @@ namespace CampusConnect.Forms
     {
         public SignUp()
         {
-            ApplyTheme();
             InitializeComponent();
+            ApplyTheme();
             LoadUniversities();
             LoadDepartments();
         }

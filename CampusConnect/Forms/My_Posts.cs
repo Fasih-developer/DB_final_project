@@ -142,7 +142,6 @@ namespace CampusConnect.Forms
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
-            // Re-render cards so they expand to new flow width
             if (flowPosts != null && flowPosts.Controls.Count > 0)
                 LoadMyPosts();
         }

@@ -24,7 +24,7 @@ namespace CampusConnect.Forms
                 return;
             }
 
-            // Date format validation
+            // validation
             DateTime parsedDate;
             if (!DateTime.TryParse(dateEarned, out parsedDate))
             {
@@ -37,13 +37,12 @@ namespace CampusConnect.Forms
                 MySqlConnection con = DBConnection.GetConnection();
                 con.Open();
 
-                // Get ProfileID
                 string profileQuery = "SELECT ProfileID FROM user_profiles WHERE AccountID = @accountID";
                 MySqlCommand profileCmd = new MySqlCommand(profileQuery, con);
                 profileCmd.Parameters.AddWithValue("@accountID", Session.AccountID);
                 long profileID = Convert.ToInt64(profileCmd.ExecuteScalar());
 
-                // Insert certificate
+                
                 string query = @"INSERT INTO certifications (ProfileID, CertificateName, IssuingOrganization, DateEarned) 
                                  VALUES (@profileID, @certName, @orgName, @dateEarned)";
 

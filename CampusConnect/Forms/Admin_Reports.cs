@@ -30,7 +30,6 @@ namespace CampusConnect.Forms
 
         private void btnReport1_Click(object sender, EventArgs e)
         {
-            // 1. Open the Save File dialog so the user can pick where to save the PDF
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "PDF Files|*.pdf";
             sfd.FileName = "University_Enrollment_Report.pdf";

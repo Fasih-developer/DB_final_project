@@ -7,8 +7,12 @@ namespace CampusConnect.Forms
 {
     public partial class University : Form
     {
-        public University() {
-            ApplyTheme(); InitializeComponent(); }
+        public University()
+        {
+            InitializeComponent();
+            ApplyTheme();
+        }
+
 
         private void University_Load(object sender, EventArgs e) { LoadUniversities(); }
 

@@ -24,7 +24,6 @@ namespace CampusConnect.Forms
                 return;
             }
 
-            // Hardcoded admin credentials
             if (username == "admin" && password == "admin")
             {
                 new ADMIN_UI().Show();

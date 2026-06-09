@@ -5,13 +5,9 @@ using System.Windows.Forms;
 
 namespace CampusConnect.Forms
 {
-    /// <summary>
-    /// Modal dialog that lets the user search all users and pick one
-    /// to start a new conversation with.
-    /// </summary>
+    
     public partial class NewChatDialog : Form
     {
-        // ── Public result — read by Messages form after ShowDialog ───
         public int    SelectedProfileID { get; private set; } = -1;
         public string SelectedName      { get; private set; } = "";
 

@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions; 
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -28,12 +29,10 @@ namespace CampusConnect.Forms
                         MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
                         adapter.Fill(dt);
-
-                        // Bind the data to the ComboBox
                         cmbUniversity.DataSource = dt;
-                        cmbUniversity.DisplayMember = "CampusName"; // What the user sees
-                        cmbUniversity.ValueMember = "UniversityID"; // The ID stored behind the scenes
-                        cmbUniversity.SelectedIndex = -1; // Keep it blank initially
+                        cmbUniversity.DisplayMember = "CampusName"; 
+                        cmbUniversity.ValueMember = "UniversityID"; 
+                        cmbUniversity.SelectedIndex = -1; 
                     }
                 }
                 catch (Exception ex)
@@ -70,29 +69,51 @@ namespace CampusConnect.Forms
 
         private void btnSaveEvent_Click(object sender, EventArgs e)
         {
-            // 1. Basic Validation to ensure fields aren't empty
-            if (string.IsNullOrWhiteSpace(txtEventTitle.Text) || cmbUniversity.SelectedIndex == -1)
+            string title = txtEventTitle.Text.Trim();
+            string description = txtDescription.Text.Trim();
+
+            //Basic Validation
+            if (string.IsNullOrWhiteSpace(title) || cmbUniversity.SelectedIndex == -1)
             {
                 MessageBox.Show("Please enter an Event Title and select a Hosting Campus.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // 2. Insert into the database
+            //  Only letters and spaces 
+            if (!Regex.IsMatch(title, @"^[a-zA-Z\s]+$"))
+            {
+                MessageBox.Show("Event Title can only contain letters and spaces. Numbers and symbols are not allowed.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Description 
+            if (description.Length < 25)
+            {
+                MessageBox.Show("Description must be at least 25 characters long.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!Regex.IsMatch(description, @"^[a-zA-Z\s.,!?'-]+$"))
+            {
+                MessageBox.Show("Description cannot contain numbers or special symbols.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            
             using (MySqlConnection conn = DBConnection.GetConnection())
             {
                 try
                 {
                     conn.Open();
 
-                    // We use parameterized queries (@title, @desc, etc.) to prevent SQL Injection
                     string query = @"INSERT INTO events (UniversityID, EventTitle, Description, EventDate) 
-                             VALUES (@univID, @title, @desc, @eventDate);";
+                                     VALUES (@univID, @title, @desc, @eventDate);";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@univID", cmbUniversity.SelectedValue);
-                        cmd.Parameters.AddWithValue("@title", txtEventTitle.Text.Trim());
-                        cmd.Parameters.AddWithValue("@desc", txtDescription.Text.Trim());
+                        cmd.Parameters.AddWithValue("@title", title);
+                        cmd.Parameters.AddWithValue("@desc", description);
                         cmd.Parameters.AddWithValue("@eventDate", dtpEventDate.Value);
 
                         int rowsAffected = cmd.ExecuteNonQuery();
@@ -100,8 +121,6 @@ namespace CampusConnect.Forms
                         if (rowsAffected > 0)
                         {
                             MessageBox.Show("Event created successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                            // Clear the form for the next entry
                             txtEventTitle.Clear();
                             txtDescription.Clear();
                             cmbUniversity.SelectedIndex = -1;
